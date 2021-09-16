@@ -1,4 +1,4 @@
-# Your Name
+# Erica Gao
 
 ## Important Links
 
