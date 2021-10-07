@@ -1,1 +1,166 @@
-<p>Hello This is Erica's WNM 617 page.</p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>CatFinder</title>
+
+   <base href="/aau/wnm617/gao.erica/">
+
+   <link rel="stylesheet" href="lib/css/jquery.mobile.structure-1.4.5.min.css">
+   <link rel="stylesheet" href="css/app.css">
+
+   <script src="lib/js/jquery-2.2.4.min.js"></script>
+
+   <script src="js/app.js"></script>
+
+   <script src="lib/js/jquery.mobile-1.4.5.min.js"></script>
+</head>
+<body>
+
+   <section data-role="page" id="page-signin">
+      <div data-role="main" class="display-flex flex-vertical">
+         <div class="flex-stretch"></div>
+         <form data-ajax="false" class="form" id="signin-form" style="padding:10px">
+            <div class="form-control">
+               <input class="form-input" type="text" id="signin-username" data-role="none" placeholder="Username">
+            </div>
+            <div class="form-control">
+               <input class="form-input" type="password" id="signin-password" data-role="none" placeholder="Password">
+            </div>
+            <div class="form-control">
+               <a href="#page-recent" class="form-button">Sign In</a>
+            </div>
+         </form>
+      </div>
+   </section>
+
+   <section data-role="page" id="page-recent">
+      <div data-role="main">
+         <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d46678.852189759535!2d-122.43560427286702!3d37.799545448000714!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2s!4v1633407066052!5m2!1sen!2s" width="800" height="600" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+      </div>
+      <footer class="bottom-nav" data-role="footer">
+         <ul>
+            <li>
+               <a href="#page-recent" class="display-flex flex-vertical ">
+                  <img src="images/map.png" class="navbarimage">
+                  <p style="font-size: 0.8rem; margin-top: -10px;">Map</p>
+               </a>
+            </li>
+
+
+            <li>
+               <a href="#page-list" class="display-flex flex-vertical ">
+                  <img src="images/list.png" class="navbarimage">
+                  <p style="font-size: 0.8rem; margin-top: -10px;">List</p>
+               </a>
+
+            </li>
+            <li>
+               <a href="#page-user-profile" class="display-flex flex-vertical ">
+                  <img src="images/user.png" class="navbarimage">
+                  <p style="font-size: 0.8rem; margin-top: -10px;">Profile</p>
+               </a>
+            </li>
+         </ul>
+      </footer>
+
+
+
+
+   </section>
+
+   <section data-role="page" id="page-list">
+      <div data-role="main">
+
+         <h2>My List</h2>
+         <ul>
+            <!-- li*10>a[href=#page-animal-profile]{Animal $} -->
+            <li><a href="#page-animal-profile">Animal 1</a></li>
+            <li><a href="#page-animal-profile">Animal 2</a></li>
+            <li><a href="#page-animal-profile">Animal 3</a></li>
+            <li><a href="#page-animal-profile">Animal 4</a></li>
+            <li><a href="#page-animal-profile">Animal 5</a></li>
+            <li><a href="#page-animal-profile">Animal 6</a></li>
+            <li><a href="#page-animal-profile">Animal 7</a></li>
+            <li><a href="#page-animal-profile">Animal 8</a></li>
+            <li><a href="#page-animal-profile">Animal 9</a></li>
+            <li><a href="#page-animal-profile">Animal 10</a></li>
+         </ul>
+      </div>
+
+      <!-- MY CORE NAVIGATION -->
+      <footer class="bottom-nav" data-role="footer">
+         <ul>
+            <li>
+               <a href="#page-recent" class="display-flex flex-vertical ">
+                  <img src="images/map.png" class="navbarimage">
+                  <p style="font-size: 0.8rem; margin-top: -10px;">Map</p>
+               </a>
+            </li>
+
+
+            <li>
+               <a href="#page-list" class="display-flex flex-vertical ">
+                  <img src="images/list.png" class="navbarimage">
+                  <p style="font-size: 0.8rem; margin-top: -10px;">List</p>
+               </a>
+
+            </li>
+            <li>
+               <a href="#page-user-profile" class="display-flex flex-vertical ">
+                  <img src="images/user.png" class="navbarimage">
+                  <p style="font-size: 0.8rem; margin-top: -10px;">Profile</p>
+               </a>
+            </li>
+         </ul>
+      </footer>
+   </section>
+
+   <section data-role="page" id="page-user-profile">
+      <div data-role="main">
+         USER!
+      </div>
+      <footer class="bottom-nav" data-role="footer">
+         <ul>
+            <li>
+               <a href="#page-recent" class="display-flex flex-vertical ">
+                  <img src="images/map.png" class="navbarimage">
+                  <p style="font-size: 0.8rem; margin-top: -10px;">Map</p>
+               </a>
+            </li>
+
+
+            <li>
+               <a href="#page-list" class="display-flex flex-vertical ">
+                  <img src="images/list.png" class="navbarimage">
+                  <p style="font-size: 0.8rem; margin-top: -10px;">List</p>
+               </a>
+
+            </li>
+            <li>
+               <a href="#page-user-profile" class="display-flex flex-vertical ">
+                  <img src="images/user.png" class="navbarimage">
+                  <p style="font-size: 0.8rem; margin-top: -10px;">Profile</p>
+               </a>
+            </li>
+         </ul>
+      </footer>
+   </section>
+
+   <section data-role="page" id="page-animal-profile">
+      <header data-role="header">
+
+      	<!-- h1 is now positioned absolute. It moves in front of any things that is not positioned. -->
+         <h1>Animal!</h1>
+         <ul>
+            <li><a href="#" data-rel="back">Back</a></li>
+         </ul>
+      </header>
+      <div data-role="main">
+         Animal!
+      </div>
+   </section>
+   
+</body>
+</html>
