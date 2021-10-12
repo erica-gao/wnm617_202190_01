@@ -13,6 +13,7 @@
    <script src="lib/js/jquery-2.2.4.min.js"></script>
 
    <script src="js/app.js"></script>
+   <script src="js/signin.js"></script>
 
    <script src="lib/js/jquery.mobile-1.4.5.min.js"></script>
 </head>
@@ -21,7 +22,7 @@
    <section data-role="page" id="page-signin">
       <div data-role="main" class="display-flex flex-vertical">
          <div class="flex-stretch"></div>
-         <form data-ajax="false" class="form" id="signin-form" style="padding:10px">
+         <form data-ajax="false" class="form signin-form" id="signin-form" style="padding:10px">
             <div class="form-control">
                <input class="form-input" type="text" id="signin-username" data-role="none" placeholder="Username">
             </div>
@@ -29,15 +30,81 @@
                <input class="form-input" type="password" id="signin-password" data-role="none" placeholder="Password">
             </div>
             <div class="form-control">
-               <a href="#page-recent" class="form-button">Sign In</a>
+               <a href="#page-map" class="form-button">Sign In</a>
+               <!-- <input type="submit" value="Sign In" class="form-button"> -->
+            </div>
+            <div class="form-control small centered">
+               Need a new account? <a href="#page-signup">Sign Up</a>
             </div>
          </form>
       </div>
    </section>
 
-   <section data-role="page" id="page-recent">
+   <section data-role="page" id="page-signup">
+      <div data-role="main" class="display-flex flex-vertical">
+         <div class="flex-stretch"></div>
+         <form data-ajax="false" class="form signin-form" id="signup-form" style="padding:10px">
+            <div class="form-control">
+               <label for="signup-email" class="form-label">Email Address</label>
+               <input class="form-input" type="text" id="signup-email" data-role="none" placeholder="Email">
+            </div>
+            <div class="form-control">
+               <label for="signup-password" class="form-label">New Password</label>
+               <input class="form-input" type="password" id="signup-password" data-role="none" placeholder="Password">
+            </div>
+            <div class="form-control">
+               <label for="signup-password2" class="form-label">Confirm Password</label>
+               <input class="form-input" type="password" id="signup-password2" data-role="none" placeholder="Confirm">
+            </div>
+            <div class="form-control">
+               <input type="submit" value="Sign Up" class="form-button">
+            </div>
+            <div class="form-control small centered">
+               Already have an account? <a href="#page-signin">Sign In</a>
+            </div>
+         </form>
+         <div class="flex-stretch"></div>
+      </div>
+   </section>
+
+
+
+   <section data-role="page" id="page-map">
+
+      <div class="wrapper">
+         <div class="searchbtn">
+            <img src="images/search.png">
+         </div>
+         <input type="text" class="search-bar" Placeholder="Search...">
+      
+      </div>
+
+
+
+
+
       <div data-role="main">
          <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d46678.852189759535!2d-122.43560427286702!3d37.799545448000714!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2s!4v1633407066052!5m2!1sen!2s" width="800" height="600" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+
+         <div class="floater bottom right">
+            <a href="#" class="btn-circle" data-activate="#recent-add-modal">&plus;</a>
+         </div>
+
+
+         <div class="modal" id="recent-add-modal">
+            <div class="modal-back" data-deactivate="#recent-add-modal"></div>
+            <div class="modal-drawer left">
+               <div class="modal-head display-flex">
+                  <div class="flex-stretch">Drawer</div>
+                  <div class="flex-none">
+                     <img src="img/icons/close.svg" alt="" class="icon" data-deactivate="#recent-add-modal">
+                  </div>
+               </div>
+               <div class="modal-body">
+                  Body
+               </div>
+            </div>
+         </div>
       </div>
       <footer class="bottom-nav" data-role="footer">
          <ul>
@@ -65,35 +132,89 @@
          </ul>
       </footer>
 
-
-
-
    </section>
+
+
+
+
+
 
    <section data-role="page" id="page-list">
       <div data-role="main">
+         <div class="overscroll floater fill-parent">
+            <ul>
+               <!-- li*10>a[href=#page-animal-profile]{Animal $} -->
+               <li><a href="#page-animal-profile">Animal 1</a></li>
+               <li><a href="#page-animal-profile">Animal 2</a></li>
+               <li><a href="#page-animal-profile">Animal 3</a></li>
+               <li><a href="#page-animal-profile">Animal 4</a></li>
+               <li><a href="#page-animal-profile">Animal 5</a></li>
+               <li><a href="#page-animal-profile">Animal 6</a></li>
+               <li><a href="#page-animal-profile">Animal 7</a></li>
+               <li><a href="#page-animal-profile">Animal 8</a></li>
+               <li><a href="#page-animal-profile">Animal 9</a></li>
+               <li><a href="#page-animal-profile">Animal 10</a></li>
+               <li><a href="#page-animal-profile">Animal 11</a></li>
+               <li><a href="#page-animal-profile">Animal 12</a></li>
+               <li><a href="#page-animal-profile">Animal 13</a></li>
+               <li><a href="#page-animal-profile">Animal 14</a></li>
+               <li><a href="#page-animal-profile">Animal 15</a></li>
+               <li><a href="#page-animal-profile">Animal 16</a></li>
+               <li><a href="#page-animal-profile">Animal 17</a></li>
+               <li><a href="#page-animal-profile">Animal 18</a></li>
+               <li><a href="#page-animal-profile">Animal 19</a></li>
+               <li><a href="#page-animal-profile">Animal 20</a></li>
+               <li><a href="#page-animal-profile">Animal 21</a></li>
+               <li><a href="#page-animal-profile">Animal 22</a></li>
+               <li><a href="#page-animal-profile">Animal 23</a></li>
+               <li><a href="#page-animal-profile">Animal 24</a></li>
+               <li><a href="#page-animal-profile">Animal 25</a></li>
+               <li><a href="#page-animal-profile">Animal 26</a></li>
+               <li><a href="#page-animal-profile">Animal 27</a></li>
+               <li><a href="#page-animal-profile">Animal 28</a></li>
+               <li><a href="#page-animal-profile">Animal 29</a></li>
+               <li><a href="#page-animal-profile">Animal 30</a></li>
+               <li><a href="#page-animal-profile">Animal 31</a></li>
+               <li><a href="#page-animal-profile">Animal 32</a></li>
+               <li><a href="#page-animal-profile">Animal 33</a></li>
+               <li><a href="#page-animal-profile">Animal 34</a></li>
+               <li><a href="#page-animal-profile">Animal 35</a></li>
+               <li><a href="#page-animal-profile">Animal 36</a></li>
+               <li><a href="#page-animal-profile">Animal 37</a></li>
+               <li><a href="#page-animal-profile">Animal 38</a></li>
+               <li><a href="#page-animal-profile">Animal 39</a></li>
+               <li><a href="#page-animal-profile">Animal 40</a></li>
+               <li><a href="#page-animal-profile">Animal 41</a></li>
+               <li><a href="#page-animal-profile">Animal 42</a></li>
+               <li><a href="#page-animal-profile">Animal 43</a></li>
+               <li><a href="#page-animal-profile">Animal 44</a></li>
+               <li><a href="#page-animal-profile">Animal 45</a></li>
+               <li><a href="#page-animal-profile">Animal 46</a></li>
+               <li><a href="#page-animal-profile">Animal 47</a></li>
+               <li><a href="#page-animal-profile">Animal 48</a></li>
+               <li><a href="#page-animal-profile">Animal 49</a></li>
+               <li><a href="#page-animal-profile">Animal 50</a></li>
+               <li><a href="#page-animal-profile">Animal 1</a></li>
+               <li><a href="#page-animal-profile">Animal 2</a></li>
+               <li><a href="#page-animal-profile">Animal 3</a></li>
+               <li><a href="#page-animal-profile">Animal 4</a></li>
+               <li><a href="#page-animal-profile">Animal 5</a></li>
+               <li><a href="#page-animal-profile">Animal 6</a></li>
+               <li><a href="#page-animal-profile">Animal 7</a></li>
+               <li><a href="#page-animal-profile">Animal 8</a></li>
+               <li><a href="#page-animal-profile">Animal 9</a></li>
+               <li><a href="#page-animal-profile">Animal 10</a></li>
+            </ul>
+         </div>
 
-         <h2>My List</h2>
-         <ul>
-            <!-- li*10>a[href=#page-animal-profile]{Animal $} -->
-            <li><a href="#page-animal-profile">Animal 1</a></li>
-            <li><a href="#page-animal-profile">Animal 2</a></li>
-            <li><a href="#page-animal-profile">Animal 3</a></li>
-            <li><a href="#page-animal-profile">Animal 4</a></li>
-            <li><a href="#page-animal-profile">Animal 5</a></li>
-            <li><a href="#page-animal-profile">Animal 6</a></li>
-            <li><a href="#page-animal-profile">Animal 7</a></li>
-            <li><a href="#page-animal-profile">Animal 8</a></li>
-            <li><a href="#page-animal-profile">Animal 9</a></li>
-            <li><a href="#page-animal-profile">Animal 10</a></li>
-         </ul>
+         <div class="floater bottom right">
+            <a href="#" class="btn-circle" data-activate="#list-add-modal">&plus;</a>
+         </div>
       </div>
-
-      <!-- MY CORE NAVIGATION -->
       <footer class="bottom-nav" data-role="footer">
          <ul>
             <li>
-               <a href="#page-recent" class="display-flex flex-vertical ">
+               <a href="#page-map" class="display-flex flex-vertical ">
                   <img src="images/map.png" class="navbarimage">
                   <p style="font-size: 0.8rem; margin-top: -10px;">Map</p>
                </a>
@@ -115,16 +236,43 @@
             </li>
          </ul>
       </footer>
+
+      <div class="modal" id="list-add-modal">
+         <div class="modal-back" data-deactivate="#list-add-modal"></div>
+         <form class="modal-popup form" id="list-add-form" data-ajax="false">
+            <div class="modal-head">Add Animal</div>
+            <div class="modal-body">
+               <div class="form-control">
+                  <label for="list-add-name" class="form-label">Name</label>
+                  <input type="text" id="list-add-name" class="form-input" data-role="none" placeholder="Name">
+               </div>
+               <div class="form-control">
+                  <label for="list-add-type" class="form-label">Type</label>
+                  <input type="text" id="list-add-type" class="form-input" data-role="none" placeholder="Name">
+               </div>
+               <div class="form-control">
+                  <label for="list-add-breed" class="form-label">Breed</label>
+                  <input type="text" id="list-add-breed" class="form-input" data-role="none" placeholder="Name">
+               </div>
+            </div>
+            <div class="modal-foot">
+               <button type="submit" class="form-button">Save</button>
+            </div>
+         </form>
+      </div>
    </section>
 
    <section data-role="page" id="page-user-profile">
-      <div data-role="main">
+      <div data-role="main" class="overscroll">
          USER!
+         <div>
+            <button class="form-button js-logout">Log Out</button>
+         </div>
       </div>
       <footer class="bottom-nav" data-role="footer">
          <ul>
             <li>
-               <a href="#page-recent" class="display-flex flex-vertical ">
+               <a href="#page-map" class="display-flex flex-vertical ">
                   <img src="images/map.png" class="navbarimage">
                   <p style="font-size: 0.8rem; margin-top: -10px;">Map</p>
                </a>
@@ -150,8 +298,6 @@
 
    <section data-role="page" id="page-animal-profile">
       <header data-role="header">
-
-      	<!-- h1 is now positioned absolute. It moves in front of any things that is not positioned. -->
          <h1>Animal!</h1>
          <ul>
             <li><a href="#" data-rel="back">Back</a></li>
