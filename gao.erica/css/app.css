@@ -170,6 +170,40 @@ p {
    padding: 0 1em;
 }
 
+.icon {
+   width: 1em;
+   height: 1em;
+   display: inline-block;
+}
+
+.nav {
+   list-style-type: none;
+   margin-top: 0;
+   margin-bottom: 0;
+   padding-left: 0;
+   display: flex;
+}
+.nav li {
+   flex: 1 1 auto;
+   padding: 0 1em;
+   text-align: center;
+   line-height: var(--header-height);
+}
+x
+
+.nav-icon {
+   display: block;
+   line-height: 2rem;
+   font-size: 1.5rem;
+}
+.nav-icon .icon {
+   vertical-align: middle;
+}
+.nav-icon-label {
+   display: block;
+   line-height: 1rem;
+   font-size: 0.7rem;
+}
 
 .nav-icon-set li.active {
    background-color: var(--color-main-light);
@@ -188,6 +222,15 @@ p {
    padding: 0;
 }
 
+
+.floating-header {
+    position: absolute;
+    background-color: rgba(255,255,255,0.15);
+    width: 100%;
+    top: 0;
+    left: 0;
+    box-shadow: none;
+}
 
 /* Floater */
 .floater { position:absolute; }
@@ -567,16 +610,36 @@ p {
 
 
 /*ANIMAL PAGE*/
-.animal-image-container{
+/*.animal-profile-top{
     width: 100%;
     height: 50%;
-    border-radius: 0 0 0em 0em;
-    /* box-shadow: 2px 2px 5px rgb(0 0 0 / 50%); */
+    border-radius: 0 0 0em 0em;*/
+    /* box-shadow: 2px 2px 5px rgb(0 0 0 / 50%); 
     background-color: var(--color-neutral-light);
     overflow: hidden;
     max-height: 500px;
+   flex: none;
+   height: 40vh;
+}
 
   }
+
+.animal-profile-bottom {
+  flex: 1 1 auto;
+  position: relative;
+  height: 40vh;
+}*/
+
+.animal-profile-top {
+   flex: none;
+   height: 40vh;
+}
+.animal-profile-bottom {
+   flex: 1 1 auto;
+   position: relative;
+}
+
+
 
 .animal-image {
   width: 100%;
@@ -648,7 +711,5 @@ p {
     left: 0;
     width: 100%;
     height: 100%;
-    background-image: url(../images/map_image.png);
-    background-size: cover;
-    background-position: center;
+
 }

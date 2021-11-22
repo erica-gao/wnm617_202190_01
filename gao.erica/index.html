@@ -13,9 +13,19 @@
    <script src="lib/js/jquery-2.2.4.min.js"></script>
 
    <script src="js/app.js"></script>
+   <script src="js/functions.js"></script>
+   <script src="js/pages.js"></script>
+   <script src="js/parts.js"></script>
    <script src="js/signin.js"></script>
+   <script src="js/maps.js"></script>
 
    <script src="lib/js/jquery.mobile-1.4.5.min.js"></script>
+
+
+   <script
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAaF4RDygaLDWUIVHOHmXTWf8F1NFjA11s"
+      async
+    ></script>
 </head>
 <body>
 
@@ -34,8 +44,8 @@
                <input class="form-input" type="password" id="signin-password" data-role="none" placeholder="Password">
             </div>
             <div class="form-control">
-               <a href="#page-map" class="form-button" style="color: var(--color-white);">Sign In</a>
-               <!-- <input type="submit" value="Sign In" class="form-button"> -->
+               <!-- <a href="#page-map" class="form-button" style="color: var(--color-white);">Sign In</a> -->
+               <input type="submit" value="Sign In" class="form-button" data-role="none">
             </div>
             <div class="form-control small centered">
                Need a new account? <a href="#page-signup">Sign Up</a>
@@ -146,6 +156,8 @@
 
 <!-- CAT LIST PAGE -->
 
+
+
    <section data-role="page" id="page-list">
 
       <div class="wrapper_list">
@@ -163,7 +175,7 @@
 
       <div data-role="main" class="overscroll">
             <div class="animallist">
-               <div class="animallist-item" data-template="#animallist-item-template">
+               <!-- <div class="animallist-item" data-template="#animallist-item-template">
                   <a href="#page-item">
                      <img src="images/LittleOrange.png">
                      <h5 class="animallist-item-name" style="font-size: 1em; color: var(--color-black);">Little Orange</h5>
@@ -221,12 +233,14 @@
                      <h6 class="animallist-item-breed" style="font-size: 0.8em;">Wirehair</h6>
                   </a>
 
-               </div>
+               </div> -->
 
                
      
          </div>
 
+
+      
 
          <div class="floater bottom right">
             <a href="#add-cat-breed" class="btn-circle">&plus;</a>
@@ -288,7 +302,7 @@
 
 <!-- CAT PROFILE PAGE -->
 
-   <section data-role="page" id="page-item">
+   <!-- <section data-role="page" id="page-item">
 
       <header data-role="header">
          <div class="display-flex flex-horizontal display-space-between">
@@ -332,29 +346,15 @@
          </div>
       </div>
 
-      <!-- <div class="modal" id="edit-delete-cat">
-         <div class="modal-back" data-deactivate="#edit-delete-cat"></div>
-         <div class="modal-popup">
-            <div class="modal-body">
-               <div class="form-control">
-                  <a href="#edit-cat-info">Edit Cat Profile</a>
-               </div>
-               <div class="form-control">
-                  <a href="#" data-activate="#delete-cat-info">Delete Cat Profile</a>
-               </div>
-               
-            </div>
-         </div>
-      </div> -->
       
       <div data-role="main " class="overscroll-x">
          <div class="animal-image-container">
-            <img class="animal-image" src="images/LittleOrange.png" alt="Animal Image">
+            <img src="https://via.placeholder.com/600x600?text=Animal" alt="" style="width:100%;height:100%;object-fit:cover">
          </div>
 
-         <div class="container top-padding-xs flower-info-box">
+         <div class="container">
 
-            <h6>WireHair</h5>
+            <h6>WireHair</h6>
             <h5 style="margin-top: 0.2em; color: var(--color-black);">Little Orange</h5>
             <p>Little Orange was found in May 2021 under the bushes in the garden, while she was playing with some trees. </p> 
 
@@ -391,13 +391,46 @@
             </div>
 
             <h5 style="margin-top: 2em; font-size: 1.2em">Last Seen</h5>
+         
+         
+
+         </div>
+         <div class="animal-profile-bottom" style="flex: 1 1 auto; position: relative; height: 40vh;">
+            <div class="map"></div>
          </div>
 
-         <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3154.529877811355!2d-122.4888173!3d37.754172!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8085877ee40d0bdf%3A0x734351254ce3cae2!2sSafeway!5e0!3m2!1sen!2s!4v1634711104216!5m2!1sen!2s" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+      </div>
+      
 
 
    </section>
+ -->
 
+
+ <section data-role="page" id="page-item">
+      <div data-role="main" class="display-flex flex-vertical">
+         <div class="animal-profile-top">
+            <img src="https://via.placeholder.com/600x600?text=Animal" alt="" style="width:100%;height:100%;object-fit:cover">
+         </div>
+         <div class="animal-profile-middle">
+            <ul class="nav">
+               <li>map</li>
+               <li>description</li>
+            </ul>
+         </div>
+         <div class="animal-profile-bottom">
+            <div class="map"></div>
+            <div class="description"></div>
+         </div>
+      </div>
+      <header data-role="header" class="floating-header">
+         <ul>
+            <li><a href="#page-list">Back</a></li>
+            <li class="flex-stretch"></li>
+            <li><a href="#edit-cat-info">Edit</a></li>
+         </ul>
+      </header>
+   </section>
 
 
 
@@ -599,7 +632,7 @@
       
 
       <div data-role="main" class="overscroll">
-         <div class="container">
+         <!-- <div class="container">
             <div class="user-profile">
                   <img src="images/user_profile.png">
                   <h5 class="text-center">Erica Gao</h5>
@@ -623,7 +656,7 @@
 
             
 
-         </div>
+         </div> -->
       
       </div>
 
@@ -731,6 +764,24 @@
          </div>
 
    </section>
+
+
+   <script type="text/template" id="footer-template">
+   <ul class="nav-icon-set">
+      <li><a href="#page-map" data-activateone=".nav-icon-set li:nth-child(1)">
+         <span class="nav-icon"><img class="icon" src="img/map.png"></span>
+         <span class="nav-icon-label">Map</span>
+      </a></li>
+      <li><a href="#page-list" data-activateone=".nav-icon-set li:nth-child(2)">
+         <span class="nav-icon"><img class="icon" src="img/list.png"></span>
+         <span class="nav-icon-label">List</span>
+      </a></li>
+      <li><a href="#page-user-profile" data-activateone=".nav-icon-set li:nth-child(3)">
+         <span class="nav-icon"><img class="icon" src="img/user.png"></span>
+         <span class="nav-icon-label">Profile</span>
+      </a></li>
+   </ul>
+   </script>
   
 
    

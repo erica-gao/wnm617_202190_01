@@ -8,6 +8,18 @@ $(()=>{
    $(document)
 
 
+   .on("pagecontainerbeforeshow",function(event, ui){
+      // Page Routing
+      switch(ui.toPage[0].id) {
+         case "page-map": RecentPage(); break;
+         case "page-list": ListPage(); break;
+         case "page-user-profile": UserProfilePage(); break;
+         case "page-item": AnimalProfilePage(); break;
+         // case "page-animal-edit": AnimalEditPage(); break;
+      }
+   })
+
+
    // FORM SUBMITS
    .on("submit","#signin-form",function(e) {
       e.preventDefault();
@@ -23,6 +35,19 @@ $(()=>{
       e.preventDefault();
       sessionStorage.removeItem("userId");
       checkUserId();
+   })
+   .on("click",".animal-jump",function(e) {
+      if(!$(this).data("id")) throw("No ID on element");
+      sessionStorage.animalId = $(this).data("id");
+      $.mobile.navigate("#page-item");
+   })
+
+   .on("click",".animal-profile-middle li",function(e){
+      let id = $(this).index();
+      $(this).addClass("active")
+         .siblings().removeClass("active");
+      $(this).closest(".animal-profile-middle").next().children().eq(id).addClass("active")
+         .siblings().removeClass("active");
    })
 
 
@@ -41,7 +66,6 @@ $(()=>{
    })
    .on("click","[data-activateone]",function(e){
       let target = $(this).data("activateone");
-      console.log(target)
       $(target).addClass("active").siblings().removeClass('active');
    })
    ;

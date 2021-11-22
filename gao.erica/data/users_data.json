@@ -1,0 +1,92 @@
+[
+  {
+    "id": 1,
+    "name": "Marsha Morse",
+    "username": "user1",
+    "email": "user1@gmail.com",
+    "password": "md5(pass)",
+    "img": "https://via.placeholder.com/400/717/fff/?text=user1",
+    "date_create": "2021-07-02 12:14:40"
+  },
+  {
+    "id": 2,
+    "name": "Rocha Clemons",
+    "username": "user2",
+    "email": "user2@gmail.com",
+    "password": "md5(pass)",
+    "img": "https://via.placeholder.com/400/780/fff/?text=user2",
+    "date_create": "2020-03-26 02:45:39"
+  },
+  {
+    "id": 3,
+    "name": "Hallie Stein",
+    "username": "user3",
+    "email": "user3@gmail.com",
+    "password": "md5(pass)",
+    "img": "https://via.placeholder.com/400/988/fff/?text=user3",
+    "date_create": "2021-01-03 02:29:29"
+  },
+  {
+    "id": 4,
+    "name": "Michele Hunt",
+    "username": "user4",
+    "email": "user4@gmail.com",
+    "password": "md5(pass)",
+    "img": "https://via.placeholder.com/400/881/fff/?text=user4",
+    "date_create": "2020-07-17 08:33:41"
+  },
+  {
+    "id": 5,
+    "name": "Shaffer Sampson",
+    "username": "user5",
+    "email": "user5@gmail.com",
+    "password": "md5(pass)",
+    "img": "https://via.placeholder.com/400/915/fff/?text=user5",
+    "date_create": "2020-06-27 11:48:16"
+  },
+  {
+    "id": 6,
+    "name": "Tisha Hodge",
+    "username": "user6",
+    "email": "user6@gmail.com",
+    "password": "md5(pass)",
+    "img": "https://via.placeholder.com/400/851/fff/?text=user6",
+    "date_create": "2021-02-23 09:09:23"
+  },
+  {
+    "id": 7,
+    "name": "Evans Bernard",
+    "username": "user7",
+    "email": "user7@gmail.com",
+    "password": "md5(pass)",
+    "img": "https://via.placeholder.com/400/931/fff/?text=user7",
+    "date_create": "2021-05-21 01:36:56"
+  },
+  {
+    "id": 8,
+    "name": "Annette Harvey",
+    "username": "user8",
+    "email": "user8@gmail.com",
+    "password": "md5(pass)",
+    "img": "https://via.placeholder.com/400/821/fff/?text=user8",
+    "date_create": "2020-03-26 04:30:34"
+  },
+  {
+    "id": 9,
+    "name": "Tracey Molina",
+    "username": "user9",
+    "email": "user9@gmail.com",
+    "password": "md5(pass)",
+    "img": "https://via.placeholder.com/400/931/fff/?text=user9",
+    "date_create": "2021-03-13 09:53:33"
+  },
+  {
+    "id": 10,
+    "name": "Chandler Downs",
+    "username": "user10",
+    "email": "user10@gmail.com",
+    "password": "md5(pass)",
+    "img": "https://via.placeholder.com/400/948/fff/?text=user10",
+    "date_create": "2021-08-13 09:12:36"
+  }
+]
