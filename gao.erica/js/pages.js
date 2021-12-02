@@ -38,8 +38,27 @@ const RecentPage = async() => {
    let mapEl = await makeMap("#page-map .map");
    makeMarkers(mapEl,animals);
 
+   let {infoWindow,map,markers} = mapEl.data();
+   markers.forEach((o,i)=>{
+      o.addListener("click",function(){
 
+         /* Simple Example */
+         // sessionStorage.animalId = animals[i].animal_id;
+         // $.mobile.navigate("#page-animal-profile")
+
+         /* InfoWindow Example */
+         infoWindow.open(map,o);
+         infoWindow.setContent(makeAnimalPopup(animals[i]))
+
+         /* Activate Example */
+         // $("#recent-drawer")
+         //    .addClass("active")
+         //    .find(".modal-body")
+         //    .html(makeAnimalPopup(animals[i]))
+      })
+   });
 }
+
 
 
 const UserProfilePage = async() => {
@@ -52,6 +71,20 @@ const UserProfilePage = async() => {
 }
 
 
+const UserEditPage = async() => {
+   let user_result = await resultQuery({
+      type:'user_by_id',
+      params:[sessionStorage.userId]
+   });
+
+   let [user] = user_result;
+   
+   $("#user-edit-form .fill-parent").html(
+      makeUserFormInputs(user,"user-edit")
+   );
+}
+
+
 const AnimalProfilePage = async() => {
    let animal_result = await resultQuery({
       type:'animal_by_id',
@@ -60,32 +93,64 @@ const AnimalProfilePage = async() => {
 
    let [animal] = animal_result;
    $(".animal-profile-top img").attr("src",animal.img);
-   $(".animal-profile-bottom .description").html(animal.description);
+   $(".animal-profile-bottom .description").html(makeAnimalProfile(animal));
 
    let locations_result = await resultQuery({
       type:'locations_by_animal_id',
       params:[sessionStorage.animalId]
    });
-   let mapEl = await makeMap("#page-item .map");
+   let mapEl = await makeMap("#page-animal-profile .map");
    makeMarkers(mapEl,locations_result);
 }
 
+const AnimalEditPage = async() => {
+   let animal_result = await resultQuery({
+      type:'animal_by_id',
+      params:[sessionStorage.animalId]
+   });
 
+   let [animal] = animal_result;
+   
+   $("#animal-edit-form .fill-parent").html(
+      makeAnimalFormInputs(animal,"animal-edit")
+   );
+}
+const AnimalAddPage = async() => {
+   $("#animal-add-form .fill-parent").html(
+      makeAnimalFormInputs({
+         name:'',
+         breed:'',
+         description:''
+      },"animal-add")
+   );
+}
 
-// const AnimalEditPage = async() => {
-//    let animal_result = await resultQuery({
-//       type:'animal_by_id',
-//       params:[sessionStorage.animalId]
-//    });
+const LocationSetLocationPage = async() => {
+   let mapEl = await makeMap("#page-location-set-location .map");
+   makeMarkers(mapEl,[]);
 
-//    let [animal] = animal_result;
-//    $(".animal-profile-top img").attr("src",animal.img);
+   mapEl.data("map").addListener("click",function(e){
+      $("#location-lat").val(e.latLng.lat())
+      $("#location-lng").val(e.latLng.lng())
+      makeMarkers(mapEl,[e.latLng]);
+   })
+}
 
-//    $("#animal-edit-name").val(animal.name);
-//    $("#animal-edit-type").val(animal.type);
-//    $("#animal-edit-breed").val(animal.breed);
-// }
+const LocationChooseAnimalPage = async() => {
+   let result = await resultQuery({
+      type:'animals_by_user_id',
+      params:[sessionStorage.userId]
+   });
 
+   console.log(result)
+
+   $(".location-animal-choice-select").html(
+      makeAnimalChoiceSelect({
+         animals:result,
+         name:'location-animal-choice-select'
+      })
+   );
+}
 
 
 

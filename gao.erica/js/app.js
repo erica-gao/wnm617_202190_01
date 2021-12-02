@@ -11,11 +11,16 @@ $(()=>{
    .on("pagecontainerbeforeshow",function(event, ui){
       // Page Routing
       switch(ui.toPage[0].id) {
+         case "page-location-choose-animal": LocationChooseAnimalPage(); break;
          case "page-map": RecentPage(); break;
          case "page-list": ListPage(); break;
          case "page-user-profile": UserProfilePage(); break;
-         case "page-item": AnimalProfilePage(); break;
-         // case "page-animal-edit": AnimalEditPage(); break;
+         case "page-animal-profile": AnimalProfilePage(); break;
+         case "page-user-edit": UserEditPage(); break;
+         case "page-animal-edit": AnimalEditPage(); break;
+         case "page-animal-add": AnimalAddPage(); break;
+         case "page-location-set-location": LocationSetLocationPage(); break;
+
       }
    })
 
@@ -29,6 +34,39 @@ $(()=>{
       e.preventDefault();
    })
 
+   .on("submit", "#animal-add-form", function(e) {
+      console.log("honk");
+      e.preventDefault();
+      animalAddForm();
+   })
+   .on("submit", "#animal-edit-form", function(e) {
+      e.preventDefault();
+      animalEditForm();
+   })
+
+
+   // FORM ANCHOR CLICKS
+
+   .on("click",".js-submituseredit",function(e) {
+      e.preventDefault();
+      userEditForm();
+   })
+   .on("click",".js-submituserpassword",function(e) {
+      e.preventDefault();
+      userEditPasswordForm();
+   })
+   .on("click",".js-submitlocationform",function(e){
+      e.preventDefault();
+      locationAddForm();
+   })
+
+
+
+   // ON CHANGE
+
+   .on("change","#location-animal-choice-select",function(e){
+      $("#location-animal-choice").val(this.value)
+   })
 
    // ANCHOR CLICKS
    .on("click",".js-logout",function(e) {
@@ -39,7 +77,14 @@ $(()=>{
    .on("click",".animal-jump",function(e) {
       if(!$(this).data("id")) throw("No ID on element");
       sessionStorage.animalId = $(this).data("id");
-      $.mobile.navigate("#page-item");
+      $.mobile.navigate("#page-animal-profile");
+   })
+
+   .on("click","[data-setnavigateback]",function(e){
+      $("#location-navigateback").val($(this).data("setnavigateback"))
+   })
+   .on("click",".js-navigate-back",function(e){
+      window.history.go(+$("#location-navigateback").val());
    })
 
    .on("click",".animal-profile-middle li",function(e){

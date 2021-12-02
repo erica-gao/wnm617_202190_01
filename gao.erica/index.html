@@ -18,6 +18,7 @@
    <script src="js/parts.js"></script>
    <script src="js/signin.js"></script>
    <script src="js/maps.js"></script>
+   <script src="js/forms.js"></script>
 
    <script src="lib/js/jquery.mobile-1.4.5.min.js"></script>
 
@@ -95,31 +96,22 @@
 
 
       <div data-role="main">
-         <div class="map">
-         <!-- <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12617.07280923675!2d-122.4805561!3d37.760309!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x808587a3f3b3ae65%3A0x2d459452e7389b75!2sGolden%20Gate%20Park%20Dog%20Training%20Area!5e0!3m2!1sen!2s!4v1634774732889!5m2!1sen!2s" width="800" height="750" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
- -->
-      </div>
+         <div class="map"></div>
 
          <div class="floater bottom right">
-            <a href="#add-cat-breed" class="btn-circle">&plus;</a>
+           <!--  <a href="#add-cat-breed" class="btn-circle">&plus;</a> -->
+            <a href="#page-location-choose-animal" class="btn-circle" data-setnavigateback="-3">&plus;</a>
          </div>
 
-<!-- 
-         <div class="modal" id="recent-add-modal">
-            <div class="modal-back" data-deactivate="#recent-add-modal"></div>
-            <div class="modal-drawer left">
-               <div class="modal-head display-flex">
-                  <div class="flex-stretch">Drawer</div>
-                  <div class="flex-none">
-                     <img src="img/icons/close.svg" alt="" class="icon" data-deactivate="#recent-add-modal">
-                  </div>
-               </div>
-               <div class="modal-body">
-                  Body
-               </div>
+         <div id="recent-drawer" class="modal">
+            <div class="modal-back transparent" data-deactivate="#recent-drawer"></div>
+            <div class="modal-drawer basin top">
+               <div class="modal-body"></div>
             </div>
-         </div> -->
+         </div>
       </div>
+
+     
 
       <footer class="bottom-nav" data-role="footer">
          <ul class="nav-icon-set">
@@ -174,76 +166,12 @@
 
 
       <div data-role="main" class="overscroll">
-            <div class="animallist">
-               <!-- <div class="animallist-item" data-template="#animallist-item-template">
-                  <a href="#page-item">
-                     <img src="images/LittleOrange.png">
-                     <h5 class="animallist-item-name" style="font-size: 1em; color: var(--color-black);">Little Orange</h5>
-                     <h6 class="animallist-item-Color" style ="font-size: 0.8em;">Orange</h6>
-                     <h6 class="animallist-item-breed" style="font-size: 0.8em;">Wirehair</h6>
-                  </a>
-
-               </div>
-
-               <div class="animallist-item" data-template="#animallist-item-template">
-                  <a href="#page-item">
-                     <img src="images/LittleBlack.png">
-                     <h5 class="animallist-item-name" style="font-size: 1em; color: var(--color-black);">Little Black</h5>
-                     <h6 class="animallist-item-Color" style ="font-size: 0.8em;">Black</h6>
-                     <h6 class="animallist-item-breed" style="font-size: 0.8em;">Shorthair</h6>
-                  </a>
-
-               </div>
-
-               <div class="animallist-item" data-template="#animallist-item-template">
-                  <a href="#page-item">
-                     <img src="images/LittleYellow.png">
-                     <h5 class="animallist-item-name" style="font-size: 1em; color: var(--color-black);">Little Yellow</h5>
-                     <h6 class="animallist-item-Color" style ="font-size: 0.8em;">Yellow</h6>
-                     <h6 class="animallist-item-breed" style="font-size: 0.8em;">Bobtail</h6>
-                  </a>
-
-               </div>
-
-               <div class="animallist-item" data-template="#animallist-item-template">
-                  <a href="#page-item">
-                     <img src="images/LittleOrange.png">
-                     <h5 class="animallist-item-name" style="font-size: 1em; color: var(--color-black);">Little Orange</h5>
-                     <h6 class="animallist-item-Color" style ="font-size: 0.8em;">Orange</h6>
-                     <h6 class="animallist-item-breed" style="font-size: 0.8em;">Wirehair</h6>
-                  </a>
-
-               </div>
-
-               <div class="animallist-item" data-template="#animallist-item-template">
-                  <a href="#page-item">
-                     <img src="images/LittleOrange.png">
-                     <h5 class="animallist-item-name" style="font-size: 1em; color: var(--color-black);">Little Orange</h5>
-                     <h6 class="animallist-item-Color" style ="font-size: 0.8em;">Orange</h6>
-                     <h6 class="animallist-item-breed" style="font-size: 0.8em;">Wirehair</h6>
-                  </a>
-
-               </div>
-
-               <div class="animallist-item" data-template="#animallist-item-template">
-                  <a href="#page-item">
-                     <img src="images/LittleOrange.png">
-                     <h5 class="animallist-item-name" style="font-size: 1em; color: var(--color-black);">Little Orange</h5>
-                     <h6 class="animallist-item-Color" style ="font-size: 0.8em;">Orange</h6>
-                     <h6 class="animallist-item-breed" style="font-size: 0.8em;">Wirehair</h6>
-                  </a>
-
-               </div> -->
-
-               
-     
+         <div class="overscroll floater fill-parent">
+            <div class="animallist"></div>
          </div>
 
-
-      
-
          <div class="floater bottom right">
-            <a href="#add-cat-breed" class="btn-circle">&plus;</a>
+            <a href="#page-animal-add" class="btn-circle">&plus;</a>
          </div>
 
       </div>
@@ -274,496 +202,225 @@
          </ul>
       </footer>
 
-      <div class="modal" id="list-add-modal">
-         <div class="modal-back" data-deactivate="#list-add-modal"></div>
-         <form class="modal-popup form" id="list-add-form" data-ajax="false">
-            <div class="modal-head">Add Animal</div>
-            <div class="modal-body">
-               <div class="form-control">
-                  <label for="list-add-name" class="form-label">Name</label>
-                  <input type="text" id="list-add-name" class="form-input" data-role="none" placeholder="Name">
-               </div>
-               <div class="form-control">
-                  <label for="list-add-type" class="form-label">Type</label>
-                  <input type="text" id="list-add-type" class="form-input" data-role="none" placeholder="Name">
-               </div>
-               <div class="form-control">
-                  <label for="list-add-breed" class="form-label">Breed</label>
-                  <input type="text" id="list-add-breed" class="form-input" data-role="none" placeholder="Name">
-               </div>
-            </div>
-            <div class="modal-foot">
-               <button type="submit" class="form-button">Save</button>
-            </div>
-         </form>
-      </div>
    </section>
 
-
-<!-- CAT PROFILE PAGE -->
-
-   <!-- <section data-role="page" id="page-item">
-
-      <header data-role="header">
-         <div class="display-flex flex-horizontal display-space-between">
-            <div><a href="#page-list">
-
-               <img style="width: 20px; height: 20px; margin-top: 1em;" src="images/back.png">
-
-            </a></div>
-
-            <div class="display-flex flex-horizontal">
-
-               <a href="#edit-cat-info" class="edit-delete-image" style="font-family: : var(--font-sans); font-weight: 500; color: var(--color-main-dark);">
-               Edit
-            </a>
-
-            <a href="#" class="edit-delete-image" data-activate="#delete-cat-info" style="font-family: : var(--font-sans); font-weight: 500; color: var(--color-neutral-dark);">
-               Delete
-            </a>
-
-         </div>
-         </div>
-      </header>
-
-      <div class="modal" id="delete-cat-info">
-         <div class="modal-back" data-deactivate="#delete-cat-info"></div>
-         <div class="modal-popup">
-            <div class="modal-body">
-               <p class="modal-body-text text-center">Delete this cat?</p>
-            </div>
-            <div class="modal-foot">
-                  <form class="form display-flex flex-horizontal" data-ajax="false">
-                     <div class="form-control flex-stretch" style="text-align: center; margin-right: 0.2em solid var(--color-neutral-medium);">
-                        <a href="#" data-deactivate="#delete-cat-info" class="text-center" style="color: var(--color-white);">No</a>
-                     </div>
-                     <div class="form-control flex-stretch" style="text-align: center;">
-                        <a href="#page-list" class="outlined-btn text-center" style="color: var(--color-white);">Yes</a>
-                     </div>         
-                  </form>
-         
-            </div>
-         </div>
-      </div>
-
-      
-      <div data-role="main " class="overscroll-x">
-         <div class="animal-image-container">
-            <img src="https://via.placeholder.com/600x600?text=Animal" alt="" style="width:100%;height:100%;object-fit:cover">
-         </div>
-
-         <div class="container">
-
-            <h6>WireHair</h6>
-            <h5 style="margin-top: 0.2em; color: var(--color-black);">Little Orange</h5>
-            <p>Little Orange was found in May 2021 under the bushes in the garden, while she was playing with some trees. </p> 
-
-            <h5 style=" font-size: 1.2em; margin-top: 2.5em;">About the cat</h5>
-
-            <div class="description display-flex flex-horizontal">
-               <div class="description-box">
-                  <h6 style="font-size: 1em; margin-top: 0.3em; color: var(--color-black);">Breed</h6>
-                  <p style="margin-top: 0.5em; color: var(--color-neutral-medium); ">Wirehair</p>
-               </div>
-
-               <div class="description-box">
-                  <h6 style="font-size: 1em; margin-top: 0.3em; color: var(--color-black);">Weight</h6>
-                  <p style="margin-top: 0.5em; color: var(--color-neutral-medium);">6 pounds</p>
-               </div>
-               <div class="description-box">
-                  <h6 style="font-size: 1em; margin-top: 0.3em; color: var(--color-black);">Color</h6>
-                  <p style="margin-top: 0.5em; color: var(--color-neutral-medium);">Orange</p>
-               </div>
-            </div>
-
-            <h5 style="margin-top: 2.5em; font-size: 1.2em">Health Status</h5>
-
-            <div class="health-status display-flex flex-horizontal">
-               <div class="health-description">
-                  <p>This big boy was found healthy at time of discovery.</p>
-               </div>
-
-               <div class="health-description">
-                  <p>98/100</p>
-               
-               </div>
-               
-            </div>
-
-            <h5 style="margin-top: 2em; font-size: 1.2em">Last Seen</h5>
-         
-         
-
-         </div>
-         <div class="animal-profile-bottom" style="flex: 1 1 auto; position: relative; height: 40vh;">
-            <div class="map"></div>
-         </div>
-
-      </div>
-      
-
-
-   </section>
- -->
-
-
- <section data-role="page" id="page-item">
+   <section data-role="page" id="page-animal-profile">
       <div data-role="main" class="display-flex flex-vertical">
          <div class="animal-profile-top">
             <img src="https://via.placeholder.com/600x600?text=Animal" alt="" style="width:100%;height:100%;object-fit:cover">
          </div>
          <div class="animal-profile-middle">
             <ul class="nav">
-               <li>map</li>
+               <li class="active">map</li>
                <li>description</li>
             </ul>
          </div>
          <div class="animal-profile-bottom">
-            <div class="map"></div>
-            <div class="description"></div>
+            <div class="section active">
+               <div class="map"></div>
+               <div class="floater bottom right">
+                  <a href="#page-location-set-location" class="btn-circle js-chooseanimal" data-setnavigateback="-2">&plus;</a>
+               </div>
+            </div>
+            <div class="section">
+               <div class="description"></div>
+            </div>
          </div>
       </div>
       <header data-role="header" class="floating-header">
          <ul>
-            <li><a href="#page-list">Back</a></li>
+            <li><a href="#" data-rel="back">Back</a></li>
             <li class="flex-stretch"></li>
-            <li><a href="#edit-cat-info">Edit</a></li>
+            <li><a href="#page-animal-edit">Edit</a></li>
          </ul>
       </header>
    </section>
 
 
 
-<!-- EDIT CAT PROFILE -->
 
-   <section data-role="page" id="edit-cat-info">
-
+ <section data-role="page" id="page-animal-add">
       <header data-role="header">
-         <div class="display-flex flex-horizontal display-space-between">
-            <div class="flex-stretch"></div>
-
-            <div><a href="#page-item" class="edit-delete-image" style="font-weight: 500;">
-               Cancel
-            </a></div>
-         </div>
+         <h1>Add Animal!</h1>
+         <ul>
+            <li><a href="#" data-rel="back">Cancel</a></li>
+         </ul>
       </header>
-      
-      <div data-role="main" class="overscroll-x container">
-         <h4>Edit Cat Information</h4>
-
-         <form data-ajax="false" class="form cat-edit-form" id="edit-cat" style="padding:10px">
-            <div class="form-control">
-               <input class="cat-form-input" type="text" id="cat-name" data-role="none" placeholder="Name">
+      <div data-role="main">
+         <form class="fill-parent display-flex flex-vertical" id="animal-add-form" data-ajax="false">
+            <div class="flex-stretch position-relative">
+               <div class="fill-parent overscroll position-absolute padding-md">
+                  
+               </div>
             </div>
-            <div class="form-control">
-               <input class="cat-form-input" type="text" id="cat-color" data-role="none" placeholder="Color">
-            </div>
-            <div class="form-control">
-               <input class="cat-form-input" type="text" id="cat-type" data-role="none" placeholder="Breed">
-            </div>
-            <div class="form-control">
-               <input class="cat-form-input" type="text" id="cat-weight" data-role="none" placeholder="Weight">
-            </div>
-            <div class="form-control">
-               <input class="cat-form-input" type="text" id="cat-description" data-role="none" placeholder="Description">
-            </div>
-            <div class="form-control">
-               <input class="cat-form-input" type="text" id="cat-health" data-role="none" placeholder="Health Status">
-            </div>
-            <div class="form-control" style="margin-top: 15em;">
-               <a href="#page-list" class="cat-form-button">Save</a>
+            <div class="flex-none padding-md">
+               <button type="submit" class="form-button">Save</button>
+               <!-- <a href="#page-list" class="form-button">Save</a> -->
             </div>
          </form>
+      </div>
+   </section>
 
-      
+   <section data-role="page" id="page-animal-edit">
+      <header data-role="header">
+         <h1>Edit Animal!</h1>
+         <ul>
+            <li><a href="#" data-rel="back">Cancel</a></li>
+         </ul>
+      </header>
+      <div data-role="main">
+         <form class="fill-parent display-flex flex-vertical" id="animal-edit-form" data-ajax="false">
+            <div class="flex-stretch position-relative">
+               <div class="fill-parent overscroll position-absolute padding-md">
+                  
+               </div>
+            </div>
+            <div class="flex-none padding-md">
+               <button type="submit" class="form-button">Save</button>
+               <!-- <a href="#page-list" class="form-button">Save</a> -->
+            </div>
+         </form>
+      </div>
+   </section>
+
+   <section data-role="page" id="page-location-choose-animal">
+      <header data-role="header">
+         <h1>Choose Animal</h1>
+         <ul>
+            <li><a href="#" data-rel="back">Back</a></li>
+            <li class="flex-stretch"></li>
+            <li><a href="#page-location-set-location">Next</a></li>
+         </ul>
+      </header>
+      <div data-role="main" style="padding:1em">
+         <input type="hidden" id="location-animal-choice">
+         <div>
+            <a href="#page-animal-add">Make a new animal</a>
+         </div>
+         <p>Or</p>
+         <div class="form-select location-animal-choice-select"></div>
+      </div>
+   </section>
+
+   <section data-role="page" id="page-location-set-location">
+      <header data-role="header">
+         <h1>Set Location</h1>
+         <ul>
+            <li><a href="#" data-rel="back">Back</a></li>
+            <li class="flex-stretch"></li>
+            <li><a href="#page-location-description">Next</a></li>
+         </ul>
+      </header>
+      <div data-role="main">
+         <input type="hidden" id="location-lat">
+         <input type="hidden" id="location-lng">
+         <div class="map"></div>
+      </div>
+   </section>
+
+   <section data-role="page" id="page-location-description">
+      <header data-role="header">
+         <h1>Description</h1>
+         <ul>
+            <li><a href="#" data-rel="back">Back</a></li>
+            <li class="flex-stretch"></li>
+  <!--           <li><a href="#" class="js-submitlocationform">Save</a></li> -->
+            <input type="submit" value="Save" class="form-button" data-role="none">
+         </ul>
+      </header>
+      <div data-role="main">
+         <form action="" style="padding:1em">
+            <input type="hidden" id="location-navigateback" value="-3">
+
+            <div class="form-control">
+               <label for="location-description" class="form-label">Describe the animal</label>
+               <textarea id="location-description" class="form-input" data-role="none" placeholder="What did it look like?"></textarea>
+            </div>
+         </form>
+      </div>
    </section>
 
 
 
-<!--    ADD CAT BREED -->
-
-   <section data-role="page" id="add-cat-breed">
-
-      <header data-role="header">
-         <div class="display-flex flex-horizontal display-space-between">
-            <div class="flex-stretch"></div>
-
-            <div><a href="#" data-rel="back" class="edit-delete-image">
-               Cancel
-            </a></div>
-         </div>
-      </header>
-      
-      <div data-role="main" class="overscroll-x container">
-         <h4>What is the cat's breed?</h4>
-
-         <form data-ajax="false" class="form cat-edit-form" id="signup-form" style="padding:10px">
-            <div class="form-control">
-               <input class="cat-form-input" type="text" id="cat-breed" data-role="none" placeholder="Breed">
-            </div>
-         
-            <div class="form-control">
-               <a href="#add-cat-location" class="cat-form-button">Next</a>
-            </div>
-         </form>
-
-      
-   </section>
-
-
-
-<!--    ADD CAT LOCATION -->
-
-<section data-role="page" id="add-cat-location">
-
-      <header data-role="header">
-         <div class="display-flex flex-horizontal display-space-between">
-            <div class="flex-stretch"></div>
-
-            <div><a href="#page-list" class="edit-delete-image">
-               Cancel
-            </a></div>
-         </div>
-      </header>
-
-
-      
-      <div data-role="main" class="overscroll-x container">
-
-         <iframe src="https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d17731.03646530789!2d-122.46204730331209!3d37.792626309253215!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2s!4v1634774791651!5m2!1sen!2s" width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
-         <h4>Where did you find the cat?</h4>
-
-         <form data-ajax="false" class="form cat-edit-form" id="signup-form" style="padding:10px">
-            <div class="form-control">
-               <input class="cat-form-input" type="text" id="cat-location" data-role="none" placeholder="Location">
-            </div>
-         
-            <div class="form-control">
-               <a href="#add-cat-info" class="cat-form-button">Next</a>
-            </div>
-         </form>
-
-      
-   </section>
-
-
-<!--    ADD CAT INFO -->
-
-
-<section data-role="page" id="add-cat-info">
-
-      <header data-role="header">
-         <div class="display-flex flex-horizontal display-space-between">
-            <div class="flex-stretch"></div>
-
-            <div><a href="#page-list" class="edit-delete-image">
-               Cancel
-            </a></div>
-         </div>
-      </header>
-      
-      <div data-role="main" class="overscroll-x container">
-         <form data-ajax="false" class="form cat-info-form" style="padding:10px">
-            <div class="form-control">
-               <label for="cat-name" class="form-label">Cat Name</label>
-               <input class="cat-form-input" type="text" id="add-cat-name" data-role="none">
-            </div>
-            <div class="form-control">
-               <label for="cat-gender" class="form-label">Gender</label>
-               <div class="form-select">
-               <select name="Girl">
-
-                  <option value="Girl">Girl</option>
-                  <option value="Boy">Boy</option>
-                 
-               </select>
-            </div>
-            </div>
-            <div class="form-control">
-               <label for="cat-color" class="form-label">Color</label>
-               <input class="cat-form-input" type="password" data-role="none">
-            </div>
-            <div class="form-control">
-               <label for="cat-weight" class="form-label">Weight</label>
-               <input class="cat-form-input" type="text" data-role="none">
-            </div>
-            <div class="form-control">
-               <a href="#page-list" class="cat-form-button">Save</a>
-            </div>
-           
-         </form>
-      
-   </section>
-
-
-<!-- USER PROFILE PAGE -->
+ <!-- USER PAGES -->
 
    <section data-role="page" id="page-user-profile">
+      <div data-role="main" class="overscroll"></div>
+      <footer data-role="footer" data-template="#footer-template"></footer>
+   </section>
+
+   <section data-role="page" id="page-user-settings">
       <header data-role="header">
-         <div class="display-flex flex-horizontal display-space-between">
-            <div class="display-flex flex-horizontal flex-stretch"></div>
-            <a href="#" class="edit-delete-image" data-activate="#edit-profile">
-               
-               <img src="images/dots.png">
-            </a>
-
-         </div>
-     
+         <h1>User Edit</h1>
+         <ul>
+            <li><a href="#" data-rel="back">Back</a></li>
+         </ul>
       </header>
-
-      <div class="modal" id="edit-profile">
-         <div class="modal-back" data-deactivate="#edit-profile"></div>
-         <div class="modal-popup">
-            <div class="modal-body">
-               <div class="form-control">
-                  <a href="#edit-user-profile">Edit User Profile</a>
-               </div>
-               <div class="form-control">
-                  <a href="#change-password">Change Password</a>
-               </div>
-
-               <div class="form-control">
-                  <a href="#" class="js-logout">Log Out</a>
-               </div>
-               
-            </div>
-         </div>
-      </div>
-      
-
       <div data-role="main" class="overscroll">
-         <!-- <div class="container">
-            <div class="user-profile">
-                  <img src="images/user_profile.png">
-                  <h5 class="text-center">Erica Gao</h5>
-                  <p style="margin-top: 4em;">Member Since: 2021</p>
-                  <p>Email: 123456@qq.com</p>
-
-            </div>
-
-
-
-            <div class="user-info display-flex" style="margin-top: 3em; margin-left: 4em;">
-               <div class="user-record">
-                  <h6>8</h6>
-                  <p>Cats</p>
-               </div>
-               <div class="user-record" style="margin-left: 8em;">
-                  <h6>12</h6>
-                  <p>Locations</p>
-               </div>
-            </div>
-
-            
-
-         </div> -->
-      
-      </div>
-
-
-
-
-      <footer class="bottom-nav" data-role="footer">
-         <ul class="nav-icon-set">
+         <ul class="nav-page-links">
             <li>
-               <a href="#page-map" class="display-flex flex-vertical ">
-                  <img src="images/map.png" class="navbarimage">
-                  <p style="font-size: 0.8rem; margin-top: -10px;">Map</p>
-               </a>
+               <a href="#page-user-edit">Update User Info</a>
             </li>
-
-
             <li>
-               <a href="#page-list" class="display-flex flex-vertical ">
-                  <img src="images/list.png" class="navbarimage">
-                  <p style="font-size: 0.8rem; margin-top: -10px;">List</p>
-               </a>
-
+               <a href="#page-user-edit-password">Change Password</a>
             </li>
-            <li style="background-color: var(--color-main-light);">
-               <a href="#page-user-profile" class="display-flex flex-vertical ">
-                  <img src="images/user.png" class="navbarimage">
-                  <p style="font-size: 0.8rem; margin-top: -10px;">Profile</p>
-               </a>
+            <li>
+               <a href="#" class="js-logout">Logout</a>
             </li>
          </ul>
-      </footer>
-
+      </div>
    </section>
-      
 
-<!-- 
-      EDIT USER PROFILE -->
-
-      <section data-role="page" id="edit-user-profile">
-
-         <header data-role="header">
-            <div class="display-flex flex-horizontal display-space-between">
-               <div class="flex-stretch"></div>
-
-               <div><a href="#page-user-profile" class="edit-delete-image">
-                  Cancel
-               </a></div>
+<section data-role="page" id="page-user-edit">
+      <header data-role="header">
+         <h1>User Edit</h1>
+         <ul>
+            <li><a href="#" data-rel="back">Back</a></li>
+            <li class="flex-stretch"></li>
+            <li><a href="#" class="js-submituseredit">Save</a></li>
+         </ul>
+      </header>
+      <div data-role="main">
+         
+         <form class="fill-parent display-flex flex-vertical" id="user-edit-form" data-ajax="false">
+            <div class="flex-stretch position-relative">
+               <div class="fill-parent overscroll position-absolute padding-md">
+                  
+               </div>
             </div>
-         </header>
-         
-         <div data-role="main" class="overscroll-x container">
-            <form data-ajax="false" class="form cat-info-form" id="user-info-form" style="padding:10px">
-               <div class="form-control">
-                  <label for="user-name" class="form-label">User Name</label>
-                  <input class="cat-form-input" type="text" id="user-name" data-role="none">
-               </div>
-         
-               <div class="form-control">
-                  <label for="email" class="form-label">Email</label>
-                  <input class="cat-form-input" type="text" id="email" data-role="none">
-               </div>
-               <div class="modal-foot">
-                  <a href="#page-user-profile" class="cat-form-button">Save</a>
-               </div>
-              
-              
-            </form>
-         </div>
-
+         </form>
+      </div>
    </section>
 
-
-   <!-- 
-       CHANGE PASSWORD -->
-
-      <section data-role="page" id="change-password">
-
-         <header data-role="header">
-            <div class="display-flex flex-horizontal display-space-between">
-               <div class="flex-stretch"></div>
-
-               <div><a href="#page-user-profile" class="edit-delete-image">
-                  Cancel
-               </a></div>
+   <section data-role="page" id="page-user-edit-password">
+      <header data-role="header">
+         <h1>Edit Password</h1>
+         <ul>
+            <li><a href="#" data-rel="back">Back</a></li>
+            <li class="flex-stretch"></li>
+            <li><a href="#" class="js-submituserpassword">Save</a></li>
+         </ul>
+      </header>
+      <div data-role="main">
+         
+         <form class="fill-parent display-flex flex-vertical" id="user-edit-password-form" data-ajax="false">
+            <div class="flex-stretch position-relative">
+               <div class="fill-parent overscroll position-absolute padding-md">
+                  <div class="form-control">
+                     <label for="user-password-initial" class="form-label">Type Password</label>
+                     <input type="password" id="user-password-initial" class="form-input" data-role="none" placeholder="Type A New Password">
+                  </div>
+                  <div class="form-control">
+                     <label for="user-password-confirm" class="form-label">Confirm Password</label>
+                     <input type="password" id="user-password-confirm" class="form-input" data-role="none" placeholder="Confirm New Password">
+                  </div>
+               </div>
             </div>
-         </header>
-         
-         <div data-role="main" class="overscroll-x container">
-            <form data-ajax="false" class="form cat-info-form" id="user-info-form" style="padding:10px">
-               <div class="form-control">
-                  <label for="user-name" class="form-label">New Password</label>
-                  <input class="cat-form-input" type="text" id="user-name" data-role="none">
-               </div>
-         
-               <div class="form-control">
-                  <label for="email" class="form-label">Confirm Password</label>
-                  <input class="cat-form-input" type="text" id="email" data-role="none">
-               </div>
-               <div class="modal-foot">
-                  <a href="#page-user-profile" class="cat-form-button">Save</a>
-               </div>
-              
-              
-            </form>
-         </div>
-
+         </form>
+      </div>
    </section>
+
+
 
 
    <script type="text/template" id="footer-template">

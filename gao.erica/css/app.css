@@ -130,7 +130,8 @@ p {
 
 [data-role="main"] {
    flex: 1 1 100%;
-
+   position: relative;
+   overflow: hidden;
 }
 [data-role="header"],
 [data-role="footer"] {
@@ -282,6 +283,37 @@ x
    height: 100%;
    background-color: rgba(0,0,0,0.7);
 }
+.modal-back.transparent {
+   background-color: transparent;
+}
+
+/* Modal Popup */
+/* MODAL */
+.modal {
+   position: absolute;
+   top: 0;
+   left: 0;
+   width: 100%;
+   height: 100%;
+   pointer-events: none;
+   opacity: 0;
+   transition: all 0.3s;
+}
+.modal.active {
+   pointer-events: initial;
+   opacity: 1;
+}
+.modal-back {
+   position: absolute;
+   top: 0;
+   left: 0;
+   width: 100%;
+   height: 100%;
+   background-color: rgba(0,0,0,0.7);
+}
+.modal-back.transparent {
+   background-color: transparent;
+}
 
 /* Modal Popup */
 .modal-popup {
@@ -300,8 +332,8 @@ x
 }
 .modal-head,
 .modal-foot {
-    background-color: var(--color-main-dark);
-    line-height: 1rem;
+    background-color: var(--color-neutral-light);
+    line-height: 2rem;
     padding: 0 1em;
 }
 .modal.active .modal-popup {
@@ -338,6 +370,15 @@ x
    transform: translate(0);
 }
 
+.modal-drawer.basin {
+   height: 30vh;
+   padding: 1em;
+   box-shadow: none;
+}
+.modal-drawer.basin .modal-body {
+   box-shadow: 0 0 5px rgba(0,0,0,0.15);
+   border-radius: 1em;
+}
 
 .modal-drawer .modal-body {
    flex: 1 1 100%;
@@ -609,27 +650,8 @@ x
 
 
 
-/*ANIMAL PAGE*/
-/*.animal-profile-top{
-    width: 100%;
-    height: 50%;
-    border-radius: 0 0 0em 0em;*/
-    /* box-shadow: 2px 2px 5px rgb(0 0 0 / 50%); 
-    background-color: var(--color-neutral-light);
-    overflow: hidden;
-    max-height: 500px;
-   flex: none;
-   height: 40vh;
-}
 
-  }
-
-.animal-profile-bottom {
-  flex: 1 1 auto;
-  position: relative;
-  height: 40vh;
-}*/
-
+/* ANIMAL PROFILE */
 .animal-profile-top {
    flex: none;
    height: 40vh;
@@ -637,6 +659,34 @@ x
 .animal-profile-bottom {
    flex: 1 1 auto;
    position: relative;
+}
+.animal-profile-bottom .section {
+   display: none;
+}
+.animal-profile-bottom .section.active {
+   display: block;
+}
+.animal-profile-middle li.active {
+   background-color: var(--color-main-light);
+}
+
+
+.floating-header {
+   position: absolute;
+   background-color: rgba(255,255,255,0.15);
+   width: 100%;
+   top: 0;
+   left: 0;
+   box-shadow: none;
+}
+
+
+.animal-popup-image,
+.animal-popup-body {
+   pointer-events: none;
+}
+.animal-popup-image img {
+   max-width: 50px;
 }
 
 
@@ -712,4 +762,12 @@ x
     width: 100%;
     height: 100%;
 
+}
+
+.animal-popup-image,
+.animal-popup-body {
+   pointer-events: none;
+}
+.animal-popup-image img {
+   max-width: 50px;
 }
