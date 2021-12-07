@@ -133,6 +133,7 @@ p {
    position: relative;
    overflow: hidden;
 }
+.header, 
 [data-role="header"],
 [data-role="footer"] {
    flex: none;
@@ -145,7 +146,7 @@ p {
    overflow: hidden;
 }
 
-
+.header ul,
 [data-role="header"] ul,
 [data-role="footer"] ul {
    display: flex;
@@ -158,6 +159,8 @@ p {
    flex: 1 1 auto;
    text-align: center;
 }
+
+.header a,
 [data-role="header"] a {
    display: block;
 }
@@ -167,9 +170,23 @@ p {
   margin-top: 10px;
 }
 
+.header a,
 [data-role="header"] a {
    padding: 0 1em;
 }
+
+.ui-header .ui-title {
+   position: absolute;
+   top: 0;
+   left: 0;
+   width: 100%;
+   height: 100%;
+   text-align: center;
+   margin: 0;
+   font-size: 1rem;
+   padding: 0;
+}
+
 
 .icon {
    width: 1em;
@@ -479,6 +496,40 @@ x
     white-space: nowrap;
 }
 
+
+.hotdog {
+   padding: 0.5em 1em;
+   display: inline-flex;
+   width: 100%;
+   border-radius: 2em;
+   position: relative;
+}
+   .hotdog.white {
+      background-color: var(--color-white);
+   }
+   .hotdog.medium {
+      background-color: var(--color-neutral-light);
+   }
+   .hotdog input {
+      border-width: 0;
+      background-color: transparent;
+      border-radius: 0;
+      -webkit-appearance: none;
+      font: inherit;
+      color: inherit;
+      outline: 0;
+      flex: 1 1 auto;
+      padding: 0;
+      margin: 0;
+      line-height: 1;
+   }
+   .search-bar .hotdog {
+      height: 100%;
+   }
+
+
+   
+
 .cat-form-input {
     width: 100%;
     display: inline-block;
@@ -655,6 +706,7 @@ x
 .animal-profile-top {
    flex: none;
    height: 40vh;
+   position: relative;
 }
 .animal-profile-bottom {
    flex: 1 1 auto;
@@ -669,7 +721,6 @@ x
 .animal-profile-middle li.active {
    background-color: var(--color-main-light);
 }
-
 
 .floating-header {
    position: absolute;
@@ -689,7 +740,11 @@ x
    max-width: 50px;
 }
 
-
+.user-profile-image img {
+   width: 100%;
+   height: 30vh;
+   object-fit: cover;
+}
 
 .animal-image {
   width: 100%;
@@ -770,4 +825,61 @@ x
 }
 .animal-popup-image img {
    max-width: 50px;
+}
+
+
+
+
+
+
+.search-bar {
+   box-shadow: none;
+   z-index: 2;
+   padding: 0.2em 0.5em;
+}
+.filter-bar {
+   display: flex;
+   padding: 0 1em;
+   width: 100%;
+   overflow-x: auto;
+   gap: 1em;
+}
+.filter-bar a {
+   padding: 0;
+}
+
+
+
+
+
+.image-picker.replace {
+   position: absolute;
+   top: 0;
+   left: 0;
+   width: 100%;
+   height: 100%;
+   background-position: center;
+   background-size: contain;
+   background-repeat: no-repeat;
+}
+.image-picker.replace input {
+   display: none;
+}
+
+.thumbnail {
+  position:relative;
+  display:inline-block;
+  width:6em;
+  height:6em;
+  border-radius:0.6em;
+  border:0.25em solid white;
+  vertical-align:middle;
+  box-shadow:0 0.15em 0.35em 0.1em rgba(0,0,0,0.2);
+  margin:0.5em;
+  
+  background-position:center;
+  background-size:cover;
+}
+.thumbnail input {
+   display: none;
 }

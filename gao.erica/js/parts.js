@@ -131,3 +131,24 @@ const makeAnimalChoiceSelect = ({animals,name,chosen=0}) => `
    `)(animals)}
 </select>
 `;
+
+const makeAnimalListSet = (arr,target="#page-list .animallist") => {
+   $(".filter-bar").html(makeFilterList(arr));
+   $(target).html(makeAnimalList(arr));
+}
+
+const capitalize = s => s[0].toUpperCase()+s.substr(1);
+
+const filterList = (animals,type) => {
+   let a = [...(new Set(animals.map(o=>o[type])))];
+   return templater(o=>o?`<a href="#" data-filter="${type}" data-value="${o}">${capitalize(o)}</a>`:'')(a);
+}
+
+
+const makeFilterList = (animals) => {
+   return `
+   <a href="#" data-filter="type" data-value="">All</a>
+   <div>|</div>
+   ${filterList(animals,'breed')}
+   `;
+}

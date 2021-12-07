@@ -32,19 +32,41 @@ const animalEditForm = async () => {
    history.go(-1);
 }
 
-const userAddForm = async () => {
-   let name = $("#user-add-name").val();
-   let breed = $("#user-add-breed").val();
+const checkSignup = async () => {
+   let email = $("#signup-email").val();
+   let username = $("#signup-username").val();
+   let password = $("#signup-password").val();
+   let confirm = $("#signup-password2").val();
+
+   if(password!=confirm)
+      throw("Passwords don't match: You should handle this in some way.");
 
    let r = await query({
-      type:'inser_user',
-      params:[name,breed,description,sessionStorage.animalId]
+      type:'insert_user',
+      params:[username,email,password]
    });
 
    if(r.error) throw(r.error);
 
-   history.go(-1);
+   sessionStorage.userId = r.id;
+
+   $.mobile.navigate("#page-signup2");
 }
+
+const checkSignup2 = async () => {
+   let name = $("#signup-name").val();
+   let image = $("#signup-image-name").val();
+
+   let r = await query({
+      type:'update_user_onboard',
+      params:[name,image,sessionStorage.userId]
+   });
+
+   if(r.error) throw(r.error);
+
+   $.mobile.navigate("#page-list");
+}
+
 
 const userEditForm = async () => {
    let username = $("#user-edit-username").val();
@@ -92,4 +114,25 @@ const locationAddForm = async () => {
    if(r.error) throw(r.error);
 
    history.go($("#location-navigateback").val());
+}
+
+const checkSearchForm = async (s) => {
+   let animals = await query({
+      type:'search_animals',
+      params:[s,sessionStorage.userId]
+   });
+
+   if(animals.error) throw(animals.error);
+
+   makeAnimalListSet(animals.result);
+}
+const checkFilter = async (f,v) => {
+   let animals = await query({
+      type:'filter_animals',
+      params:[f,v,sessionStorage.userId]
+   });
+
+   if(animals.error) throw(animals.error);
+
+   makeAnimalListSet(animals.result);
 }

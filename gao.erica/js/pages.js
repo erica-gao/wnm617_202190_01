@@ -13,13 +13,12 @@ const resultQuery = async (options) => {
 
 
 const ListPage = async() => {
-   // destructure
-   let result = await resultQuery({
+   let animals = await resultQuery({
       type:'animals_by_user_id',
       params:[sessionStorage.userId]
    });
 
-   $("#page-list .animallist").html(makeAnimalList(result));
+   makeAnimalListSet(animals);
 }
 
 
@@ -85,6 +84,7 @@ const UserEditPage = async() => {
 }
 
 
+
 const AnimalProfilePage = async() => {
    let animal_result = await resultQuery({
       type:'animal_by_id',
@@ -92,7 +92,7 @@ const AnimalProfilePage = async() => {
    });
 
    let [animal] = animal_result;
-   $(".animal-profile-top img").attr("src",animal.img);
+   $(".animal-profile-top>img").attr("src",animal.img);
    $(".animal-profile-bottom .description").html(makeAnimalProfile(animal));
 
    let locations_result = await resultQuery({
