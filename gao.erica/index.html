@@ -59,7 +59,12 @@
    <section data-role="page" id="page-signup">
       <div data-role="main" class="display-flex flex-vertical">
          <div class="flex-stretch"></div>
-         <form data-ajax="false" class="form signin-form" id="signup-form" style="padding:10px">
+         <div style="text-align: center; margin-top: 4em;">
+            <img style="width: 150px; height: 150px;" src="images/cat.png">
+            <h5 style="margin-top: 1em;">Track your neighborhood cats!</h5>
+         </div>
+         
+         <form data-ajax="false" class="form signin-form" id="signup-form" style="padding:10px; margin-top: 5em;">
             <div class="form-control">
                <label for="signup-email" class="form-label">Email Address</label>
                <input class="form-input" type="text" id="signup-email" data-role="none" placeholder="Email">
@@ -74,7 +79,7 @@
             </div>
             <div class="form-control">
                <label for="signup-password2" class="form-label">Confirm Password</label>
-               <input class="form-input" type="password" id="signup-password2" data-role="none" placeholder="Confirm">
+               <input class="form-input" type="password" id="signup-password2" data-role="none" placeholder="Confirm Password">
             </div>
             <div class="form-control">
                <input type="submit" value="Sign Up" class="form-button" data-role="none">
@@ -141,33 +146,7 @@
          </div>
       </div>
 
-     
-
-      <footer class="bottom-nav" data-role="footer">
-         <ul class="nav-icon-set">
-            <li style="background-color: var(--color-main-light);">
-               <a href="#page-map" class="display-flex flex-vertical ">
-                  <img src="images/map.png" class="navbarimage">
-                  <p style="font-size: 0.8rem; margin-top: -10px;">Map</p>
-               </a>
-            </li>
-
-
-            <li>
-               <a href="#page-list" class="display-flex flex-vertical ">
-                  <img src="images/list.png" class="navbarimage">
-                  <p style="font-size: 0.8rem; margin-top: -10px;">List</p>
-               </a>
-
-            </li>
-            <li>
-               <a href="#page-user-profile" class="display-flex flex-vertical ">
-                  <img src="images/user.png" class="navbarimage">
-                  <p style="font-size: 0.8rem; margin-top: -10px;">Profile</p>
-               </a>
-            </li>
-         </ul>
-      </footer>
+      <footer data-role="footer" data-template="#footer-template"></footer>
 
 
 
@@ -178,18 +157,54 @@
 
 <!-- CAT LIST PAGE -->
 
-
-
    <section data-role="page" id="page-list">
-
       <div data-role="main" class="display-flex flex-vertical">
-
-         <div class="search-bar header flex-none">
+         <div class="container" style="margin-bottom: 0;">
+            <h1>My List</h1>
+         </div>
+         
+         <div class="search-bar header flex-none" style="z-index: 0;">
             <form data-ajax="false" id="list-search-form" class="hotdog medium">
                <input type="search" data-role="none" placeholder="Search for an animal">
             </form>
          </div>
-         <div class="filter-bar header flex-none"></div>
+         <div class="filter-list display-flex display-space-between">
+            <p style="color: var(--color-sub-medium); font-weight: 500;">Sort</p>
+            <p id="myBtn" style="color: var(--color-sub-medium); font-weight: 500;">Filter</p>
+         </div>
+
+
+         <div id="myModal" class="modal">
+
+           <!-- Modal content -->
+         
+           <div class="modal-content">
+              <div class="modal-header" style="box-shadow: none;">
+                <p class="close">&times;</p>
+                <h3 style="margin: 0 0.8em; color: var(--color-sub-medium);">Filter by breed</h3>
+              </div>
+              <div class="modal-body">
+                <div class="filter-bar header flex-none" style="height: auto; overflow: hidden; display: block; box-shadow: none; font-weight: 400;"></div>
+              </div>
+              <div class="modal-footer">
+              </div>
+            </div>
+
+         </div>
+
+
+
+
+    <!--      <div id="filter-bar" class="modal">
+            <div class="modal-back transparent" data-deactivate="#filter-bar"></div>
+            <div class="modal-drawer basin top">
+               <div class="modal-body"></div>
+            </div>
+         </div> -->
+
+     <!--     <div class="filter-bar header flex-none"></div> -->
+
+
          <div class="position-relative flex-stretch">
             <div class="overscroll floater fill-parent">
                <div class="animallist"></div>
@@ -200,36 +215,9 @@
             <a href="#page-animal-add" class="btn-circle">&plus;</a>
          </div>
       </div>
-
-
-
-      <footer class="bottom-nav" data-role="footer">
-         <ul class="nav-icon-set">
-            <li>
-               <a href="#page-map" class="display-flex flex-vertical ">
-                  <img src="images/map.png" class="navbarimage">
-                  <p style="font-size: 0.8rem; margin-top: -10px;">Map</p>
-               </a>
-            </li>
-
-
-            <li style="background-color: var(--color-main-light);">
-               <a href="#page-list" class="display-flex flex-vertical">
-                  <img src="images/list.png" class="navbarimage">
-                  <p style="font-size: 0.8rem; margin-top: -10px;">List</p>
-               </a>
-
-            </li>
-            <li>
-               <a href="#page-user-profile" class="display-flex flex-vertical ">
-                  <img src="images/user.png" class="navbarimage">
-                  <p style="font-size: 0.8rem; margin-top: -10px;">Profile</p>
-               </a>
-            </li>
-         </ul>
-      </footer>
-
+      <footer data-role="footer" data-template="#footer-template"></footer>
    </section>
+
 
 <section data-role="page" id="page-animal-profile">
       <div data-role="main" class="display-flex flex-vertical">
@@ -397,7 +385,33 @@
  <!-- USER PAGES -->
 
    <section data-role="page" id="page-user-profile">
-      <div data-role="main" class="overscroll"></div>
+      <header data-role="header" class="display-flex" style="box-shadow: none;">
+         <div class="flex-stretch"></div>
+         <div id="openModal" style="margin-right: 1em; margin-top: 0.5em;">
+            <!-- <a href="#page-user-settings"> -->
+            <img class="icon" src="images/setting.png">
+      <!--       </a> -->
+           
+         </div>
+      </header>
+      <div data-role="main" class="overscroll" id="overscroll_out"></div>
+
+
+      <div class="modal fade" id="lab-slide-bottom-popup" data-keyboard="false" data-backdrop="false">
+        <div class="lab-modal-body">
+          <button type="button" class="modal_close" style="width: 10%; padding: 0; margin: 0; float: right;" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only"></span></button>
+          <ul class="nav-page-links">
+            <li><span><img class="icon" src="images/edit.png"></span><a href="#page-user-edit">Update User Info</a></li>
+            <li><span><img class="icon" src="images/lock.png"></span><a href="#page-user-edit-password">Change Password</a></li>
+         </ul>
+
+         <button class="logout" style="width: 90%; margin: 0 auto;"><a href="#" class="js-logout">Logout</a></button>
+
+       
+        </div>
+      </div>
+
+
       <footer data-role="footer" data-template="#footer-template"></footer>
    </section>
 
@@ -412,7 +426,6 @@
          <ul class="nav-page-links">
             <li><a href="#page-user-edit">Update User Info</a></li>
             <li><a href="#page-user-edit-password">Change Password</a></li>
-            <li><a href="#page-user-upload">Change Photo</a></li>
             <li><a href="#" class="js-logout">Logout</a></li>
          </ul>
       </div>
@@ -420,16 +433,16 @@
 
    <section data-role="page" id="page-user-edit">
       <header data-role="header">
-         <h1>User Edit</h1>
+        
          <ul>
-            <li><a href="#" data-rel="back">Back</a></li>
+            <li><a href="#" data-rel="back"><img class="icon" src="images/back.png"></a></li>
             <li class="flex-stretch"></li>
             <li><a href="#" class="js-submituseredit">Save</a></li>
          </ul>
       </header>
       <div data-role="main">
          
-         <form class="fill-parent display-flex flex-vertical" id="user-edit-form" data-ajax="false">
+         <form class="fill-parent display-flex flex-vertical container" style="width: auto;" id="user-edit-form" data-ajax="false">
             <div class="flex-stretch position-relative">
                <div class="fill-parent overscroll position-absolute padding-md">
                   
@@ -443,7 +456,7 @@
       <header data-role="header">
          <h1>Upload Photo</h1>
          <ul>
-            <li><a href="#" data-rel="back">Back</a></li>
+            <li><a href="#" data-rel="back"><img class="icon" src="images/back.png"></a></li>
             <li class="flex-stretch"></li>
             <li><a href="#" class="js-submituserupload">Save</a></li>
          </ul>
@@ -461,9 +474,9 @@
 
    <section data-role="page" id="page-user-edit-password">
       <header data-role="header">
-         <h1>Edit Password</h1>
+
          <ul>
-            <li><a href="#" data-rel="back">Back</a></li>
+            <li><a href="#" data-rel="back"><img class="icon" src="images/back.png"></a></li>
             <li class="flex-stretch"></li>
             <li><a href="#" class="js-submituserpassword">Save</a></li>
          </ul>
@@ -472,7 +485,7 @@
          
          <form class="fill-parent display-flex flex-vertical" id="user-edit-password-form" data-ajax="false">
             <div class="flex-stretch position-relative">
-               <div class="fill-parent overscroll position-absolute padding-md">
+               <div class="fill-parent overscroll position-absolute padding-md container" style="width: auto;">
                   <div class="form-control">
                      <label for="user-password-initial" class="form-label">Type Password</label>
                      <input type="password" id="user-password-initial" class="form-input" data-role="none" placeholder="Type A New Password">

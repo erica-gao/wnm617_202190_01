@@ -61,12 +61,17 @@ const RecentPage = async() => {
 
 
 const UserProfilePage = async() => {
+   let cats = await resultQuery({
+      type:'cats_by_user_id',
+      params:[sessionStorage.userId]});
+   let tcats = cats.length;
+
    let result = await resultQuery({
       type:'user_by_id',
       params:[sessionStorage.userId]
    });
    let [user] = result;
-   $("#page-user-profile [data-role='main']").html(makeUserProfile(user));
+   $("#page-user-profile [data-role='main']").html(makeUserProfile(user, tcats));
 }
 
 

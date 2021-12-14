@@ -14,14 +14,29 @@ const makeAnimalList = templater((o)=>`
 `);
 
 
-const makeUserProfile = (o) => `
-<div class="user-profile-image">
-   <img src="${o.img}" alt="">
+const makeUserProfile = (o, tcats) => `
+<div class="user-profile-image display-flex">
+   <img class="profile-image" src="${o.img}" alt="">
+   <a href="#page-user-upload" class="icon-profile">
+      <img src="images/camera.png" alt="">
+   </a>
 </div>
 <div>
-   <h2>${o.name}</h2>
-   <h3>&commat;${o.username}</h3>
-   <div><a href="#page-user-settings">Settings</a></div>
+   <h2 style="text-align: center; font-size: 1.6em;">${o.name}</h2>
+   <div class="container display-flex flex-align-center" style="margin-top: 1.4em;">
+      <div class="text-center" style="margin: 0 auto; line-height: 1em;"><span style="color: var(--color-main-medium); font-size: 1.3em; font-family: var(--font-sans);">${tcats}</span><p style="margin-top: 0.5em; font-size: 1em; color: var(--color-neutral-dark);">Cats Found</p></div>
+
+   </div>
+
+   <div class="container" style="line-height: 1em;">
+
+   <h3 style="color: var(--color-sub-medium); font-weight: 500; margin-top: 2em;">Information</h3>
+   <p style="margin-top: 1.5em;"><span class="profile-page-description">User name: </span>user${o.id}</p>
+   <p><span class="profile-page-description">Email: </span>${o.email}</p>
+   <p><span class="profile-page-description">User ID: </span>${o.id}</p>
+
+   </div>
+   
 </div>
 `;
 
@@ -148,7 +163,6 @@ const filterList = (animals,type) => {
 const makeFilterList = (animals) => {
    return `
    <a href="#" data-filter="type" data-value="">All</a>
-   <div>|</div>
    ${filterList(animals,'breed')}
    `;
 }

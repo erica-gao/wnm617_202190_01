@@ -189,4 +189,78 @@ $(()=>{
    }[location.hash]).addClass("active");
 
 
+
+// Get the modal
+var modal = document.getElementById("myModal");
+
+// Get the button that opens the modal
+var btn = document.getElementById("myBtn");
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+
+// When the user clicks on the button, open the modal
+document.getElementById("myBtn").onclick = function() {
+
+   document.getElementById("myModal").style.display = "block";
+}
+
+
+// When the user clicks on <span> (x), close the modal
+$(document).ready(function(){
+document.getElementsByClassName("close")[0].onclick = function() {
+  modal.style.display = "none";
+}
+})
+
+$(document).ready(function(){
+document.getElementsByClassName("filter-bar")[0].onclick = function() {
+  modal.style.display = "none";
+}
+})
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}
+
+
+
+// Settings page modal
+var settingsModal = document.getElementById("lab-slide-bottom-popup");
+
+
+// When the user clicks on the button, open the modal
+$(document).ready(function(){
+   document.getElementById("openModal").onclick = function() {
+      document.getElementById("lab-slide-bottom-popup").style.display = "block";
+   }
+})
+
+
+$(document).ready(function(){
+   document.getElementsByClassName("modal_close")[0].onclick = function() {
+     document.getElementById("lab-slide-bottom-popup").style.display = "none";
+   }
+})
+
+
+// When the user clicks anywhere outside of the modal, close it
+// $(document).ready(function(){
+//    if (event.target == document.getElementById("lab-slide-bottom-popup")) {
+//       console.log("hello");
+//     document.getElementById("lab-slide-bottom-popup").style.display = "none";
+//   }
+   
+// })
+
+window.onclick = function(event) {
+  if (event.target == settingsModal) {
+    settingsModal.style.display = "none";
+  }
+}
+
 });
+

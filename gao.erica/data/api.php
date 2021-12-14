@@ -83,6 +83,18 @@ function makeStatement($data) {
 
          case "user_by_id":
             return makeQuery($c,"SELECT id,username,name,email,img FROM `track_users` WHERE `id`=?",$p);
+         case "cats_by_user_id":
+            return makeQuery($c,"SELECT * FROM `track_animals` WHERE `user_id`=?",$p);
+
+         // case "all_cats_locations":
+
+         // $r = makeQuery($c,"SELECT id FROM `track_animals` WHERE `user_id`=?",$p);
+
+         //    return makeQuery($c,"SELECT * 
+         //       FROM `track_locations` 
+         //       WHERE `animal_id`=?",$p);
+
+
          case "animal_by_id":
             return makeQuery($c,"SELECT * FROM `track_animals` WHERE `id`=?",$p);
          case "location_by_id":
