@@ -1,14 +1,13 @@
-
 const animalAddForm = async () => {
    let name = $("#animal-add-name").val();
    let breed = $("#animal-add-breed").val();
+   let color = $("#animal-add-color").val();
+   let weight = $("#animal-add-weight").val();
    let description = $("#animal-add-description").val();
-
-   console.log(name, breed, description);
 
    let r = await query({
       type:'insert_animal',
-      params:[sessionStorage.userId,name,breed,description]
+      params:[sessionStorage.userId,name,breed,color,weight,description]
    });
 
    if(r.error) throw(r.error);
@@ -20,11 +19,13 @@ const animalAddForm = async () => {
 const animalEditForm = async () => {
    let name = $("#animal-edit-name").val();
    let breed = $("#animal-edit-breed").val();
+   let color = $("#animal-edit-color").val();
+   let weight = $("#animal-edit-weight").val();
    let description = $("#animal-edit-description").val();
 
    let r = await query({
       type:'update_animal',
-      params:[name,breed,description,sessionStorage.animalId]
+      params:[name,breed,color,weight,description,sessionStorage.animalId]
    });
 
    if(r.error) throw(r.error);
@@ -105,11 +106,13 @@ const locationAddForm = async () => {
    let lng = $("#location-lng").val();
    let description = $("#location-description").val();
 
+   console.log(animal,lat,lng,description);
+
+
    let r = await query({
       type:'insert_location',
       params:[animal,lat,lng,description]
    });
-   console.log([animal,lat,lng,description]);
 
    if(r.error) throw(r.error);
 

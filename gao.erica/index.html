@@ -106,7 +106,7 @@
                   <input type="file" data-role="none">
                </label>
             </div>
-            <div class="form-control">
+            <div class="form-control" style="margin-top: 5em;">
                <input type="submit" value="Start" class="form-button" data-role="none">
             </div>
          </form>
@@ -192,19 +192,6 @@
 
          </div>
 
-
-
-
-    <!--      <div id="filter-bar" class="modal">
-            <div class="modal-back transparent" data-deactivate="#filter-bar"></div>
-            <div class="modal-drawer basin top">
-               <div class="modal-body"></div>
-            </div>
-         </div> -->
-
-     <!--     <div class="filter-bar header flex-none"></div> -->
-
-
          <div class="position-relative flex-stretch">
             <div class="overscroll floater fill-parent">
                <div class="animallist"></div>
@@ -223,17 +210,19 @@
       <div data-role="main" class="display-flex flex-vertical">
          <div class="animal-profile-top">
             <img src="https://via.placeholder.com/600x600?text=Animal" alt="" style="width:100%;height:100%;object-fit:cover">
-            <div class="floater bottom right">
+            <div class="floater bottom right" style="bottom: 1em;">
                <a href="#page-animal-edit-upload" style="font-size:1.25em">
                   <img src="images/pencil.png" class="icon">
                </a>
             </div>
          </div>
          <div class="animal-profile-middle">
-            <ul class="nav">
-               <li class="active">map</li>
-               <li>description</li>
-            </ul>
+            <!-- <ul class="nav">
+               <li class="active profile-navs">map</li>
+               <li class="profile-navs">description</li>
+            </ul> -->
+
+
          </div>
          <div class="animal-profile-bottom">
             <div class="section active">
@@ -249,19 +238,18 @@
       </div>
       <header data-role="header" class="floating-header">
          <ul>
-            <li><a href="#" data-rel="back">Back</a></li>
+            <li><a href="#" data-rel="back"><img class="icon" src="images/back_white.png"></a></li>
             <li class="flex-stretch"></li>
-            <li><a href="#page-animal-edit">Edit</a></li>
+            <li><a href="#page-animal-edit"><img class="icon" src="images/setting_white.png"></a></li>
          </ul>
       </header>
    </section>
-
 
    <section data-role="page" id="page-animal-edit-upload">
       <header data-role="header">
          <h1>Upload Photo</h1>
          <ul>
-            <li><a href="#" data-rel="back">Back</a></li>
+            <li><a href="#" data-rel="back"><img class="icon" src="images/back.png"></a></li>
             <li class="flex-stretch"></li>
             <li><a href="#" class="js-submitanimalupload">Save</a></li>
          </ul>
@@ -269,6 +257,7 @@
       <div data-role="main">
          <input type="hidden" id="animal-upload-filename">
          <label class="image-picker replace">
+            <img style="width: 5em; margin: 2em;" src="images/add.png">
             <input type="file" data-role="none">
          </label>
       </div>
@@ -277,21 +266,21 @@
 
 
 
- <section data-role="page" id="page-animal-add">
+   <section data-role="page" id="page-animal-add">
       <header data-role="header">
-         <h1>Add Animal!</h1>
+         <h1>Add a Cat</h1>
          <ul>
             <li><a href="#" data-rel="back">Cancel</a></li>
          </ul>
       </header>
       <div data-role="main">
-         <form class="fill-parent display-flex flex-vertical" id="animal-add-form" data-ajax="false">
+         <form class="fill-parent display-flex flex-vertical container" style="width: auto; height: 95%;" id="animal-add-form" data-ajax="false">
             <div class="flex-stretch position-relative">
                <div class="fill-parent overscroll position-absolute padding-md">
                   
                </div>
             </div>
-            <div class="flex-none padding-md">
+            <div class="flex-none padding-md" style="margin-top: -4em;">
                <button type="submit" class="form-button">Save</button>
                <!-- <a href="#page-list" class="form-button">Save</a> -->
             </div>
@@ -301,21 +290,24 @@
 
    <section data-role="page" id="page-animal-edit">
       <header data-role="header">
-         <h1>Edit Animal!</h1>
+
          <ul>
             <li><a href="#" data-rel="back">Cancel</a></li>
          </ul>
       </header>
       <div data-role="main">
-         <form class="fill-parent display-flex flex-vertical" id="animal-edit-form" data-ajax="false">
-            <div style="padding:0.5rem 1rem;text-align:right;font-size:0.9em;">
-               <a href="#" class="js-animal-delete">Delete Animal?</a>
-            </div>
+         <form class="fill-parent display-flex flex-vertical container" style="width: auto; height: 95%;" id="animal-edit-form" data-ajax="false">
+            
             <div class="flex-stretch position-relative">
                <div class="fill-parent overscroll position-absolute padding-md">
                   
                </div>
+
             </div>
+            <div style="padding:0.3rem 0.3rem;text-align:left;font-size:0.9em;position: absolute;margin-top: 30em;">
+               <a href="#" class="js-animal-delete display-flex" style="font-family: var(--font-sans); color: var(--color-neutral-dark); font-weight: 400;"><span style="margin-right: 0.3em;"><img class="icon" src="images/trash.png"></span><p style="margin-top: -0.1em;">Delete This Cat</p></a>
+            </div>
+
             <div class="flex-none padding-md">
                <button type="submit" class="form-button">Save</button>
                <!-- <a href="#page-list" class="form-button">Save</a> -->
@@ -325,20 +317,23 @@
    </section>
    <section data-role="page" id="page-location-choose-animal">
       <header data-role="header">
-         <h1>Choose Animal</h1>
+         <!-- <h1>Choose Animal</h1> -->
          <ul>
-            <li><a href="#" data-rel="back">Back</a></li>
+            <li><a href="#" data-rel="back"><img class="icon" src="images/back.png"></a></li>
             <li class="flex-stretch"></li>
             <li><a href="#page-location-set-location">Next</a></li>
          </ul>
       </header>
       <div data-role="main" style="padding:1em">
-         <input type="hidden" id="location-animal-choice">
-         <div>
-            <a href="#page-animal-add">Make a new animal</a>
-         </div>
-         <p>Or</p>
+
+         <h3>Choose the cat you want to update</h3>
          <div class="form-select location-animal-choice-select"></div>
+         <input type="hidden" id="location-animal-choice">
+         <div style="text-align: center; margin-top: 2em;">
+            <a href="#page-animal-add" style="font-family: var(--font-sans); color: var(--color-sub-dark); text-align: center;">Or add a new cat</a>
+         </div>
+  
+
       </div>
    </section>
 
@@ -346,7 +341,7 @@
       <header data-role="header">
          <h1>Set Location</h1>
          <ul>
-            <li><a href="#" data-rel="back">Back</a></li>
+            <li><a href="#" data-rel="back"><img class="icon" src="images/back.png"></a></li>
             <li class="flex-stretch"></li>
             <li><a href="#page-location-description">Next</a></li>
          </ul>
@@ -362,10 +357,9 @@
       <header data-role="header">
          <h1>Description</h1>
          <ul>
-            <li><a href="#" data-rel="back">Back</a></li>
+            <li><a href="#" data-rel="back"><img class="icon" src="images/back.png"></a></li>
             <li class="flex-stretch"></li>
-  <!--           <li><a href="#" class="js-submitlocationform">Save</a></li> -->
-            <input type="submit" value="Save" class="form-button" data-role="none">
+            <li><a href="#" class="js-submitlocationform">Save</a></li>
          </ul>
       </header>
       <div data-role="main">
@@ -399,7 +393,7 @@
 
       <div class="modal fade" id="lab-slide-bottom-popup" data-keyboard="false" data-backdrop="false">
         <div class="lab-modal-body">
-          <button type="button" class="modal_close" style="width: 10%; padding: 0; margin: 0; float: right;" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only"></span></button>
+          <button type="button" class="modal_close" style="width: 10%; padding: 0; margin: 0; float: right;" data-dismiss="modal"><span aria-hidden="true">&times;</span><div class="background_circle" style="width: 0.5em; color: var(--color-neutral-medium);"></div></button>
           <ul class="nav-page-links">
             <li><span><img class="icon" src="images/edit.png"></span><a href="#page-user-edit">Update User Info</a></li>
             <li><span><img class="icon" src="images/lock.png"></span><a href="#page-user-edit-password">Change Password</a></li>

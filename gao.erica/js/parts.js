@@ -8,25 +8,36 @@ const makeAnimalList = templater((o)=>`
    <div class="flex-stretch animallist-item-body padding-md">
       <div class="animallist-item-name">${o.name}</div>
       <div class="animallist-item-breed"><strong>Breed</strong> ${o.breed}</div>
+
    </div>
 </div>
 </div>
 `);
 
 
+
+const showHeader = (arr,target="#page-list .animallist") => {
+   $(target).html(makeshowHeader(arr));
+}
+
+
+const makeshowHeader = (o) => `
+<h1>Add a cat</h1>
+
+`;
+
+
 const makeUserProfile = (o, tcats) => `
 <div class="user-profile-image display-flex">
    <img class="profile-image" src="${o.img}" alt="">
    <a href="#page-user-upload" class="icon-profile">
-      <img src="images/camera.png" alt="">
+      <img src="images/camera.png" style="width: 1.5em;" alt="">
+      <div class="background_circle"></div>
    </a>
 </div>
 <div>
    <h2 style="text-align: center; font-size: 1.6em;">${o.name}</h2>
-   <div class="container display-flex flex-align-center" style="margin-top: 1.4em;">
-      <div class="text-center" style="margin: 0 auto; line-height: 1em;"><span style="color: var(--color-main-medium); font-size: 1.3em; font-family: var(--font-sans);">${tcats}</span><p style="margin-top: 0.5em; font-size: 1em; color: var(--color-neutral-dark);">Cats Found</p></div>
 
-   </div>
 
    <div class="container" style="line-height: 1em;">
 
@@ -44,10 +55,30 @@ const makeUserProfile = (o, tcats) => `
 
 
 const makeAnimalProfile = (o) => `
-<div>
-   <h2>${o.name}</h2>
-   <div><strong>breed</strong> ${o.breed}</div>
-   <div><strong>description</strong> <p>${o.description}</p></div>
+<div class="container" style="margin-top: 1em;">
+   <h1>${o.name}</h1>
+   <div><p>${o.description}</p></div>
+   <div class="display-flex display-space-between" style="margin: 0 1em; margin-bottom: 2em;">
+
+      <div>
+      <h4>Breed</h4>
+      <p style="color: var(--color-neutral-dark);">${o.breed}</p>
+      </div>
+
+            <div>
+      <h4>Color</h4>
+      <p style="color: var(--color-neutral-dark);">${o.color}</p>
+      </div>
+
+            <div>
+      <h4>Weight</h4>
+      <p style="color: var(--color-neutral-dark);">${o.weight} pounds</p>
+      </div>
+
+
+
+   </div>
+
 </div>
 `;
 
@@ -57,8 +88,8 @@ const makeAnimalPopup = o => `
       <img src="${o.img}" alt="">
    </div>
    <div class="flex-stretch animal-popup-body padding-md">
-      <div class="animal-popup-name">${o.name}</div>
-      <div class="animal-popup-breed"><strong>Breed</strong> ${o.breed}</div>
+      <div class="animal-popup-name"><span style="font-weight:600;">Name: </span>${o.name}</div>
+      <div class="animal-popup-breed"><span>Breed: </span>${o.breed}</div>
    </div>
 </div>
 `;
@@ -80,27 +111,38 @@ const FormControlTextarea = ({namespace,name,displayname,placeholder,value}) => 
 
 
 const makeAnimalFormInputs = (o,namespace) => `
+
 ${FormControlInput({
    namespace:namespace,
    name:"name",
    displayname:"Name",
-   placeholder:"Type The Animal Name",
+   placeholder:"What's the cat's name?",
    value:o.name
 })}
-${FormControlInput({
-   namespace:namespace,
-   displayname:"Type",
-   type:"text",
-   placeholder:"Type The Animal Type",
-   value:o.type
-})}
+
 ${FormControlInput({
    namespace:namespace,
    name:"breed",
    displayname:"Breed",
    type:"text",
-   placeholder:"Type The Animal Breed",
+   placeholder:"What's its breed?",
    value:o.breed
+})}
+${FormControlInput({
+   namespace:namespace,
+   name:"color",
+   displayname:"Color",
+   type:"text",
+   placeholder:"What's its color?",
+   value:o.color
+})}
+${FormControlInput({
+   namespace:namespace,
+   name:"weight",
+   displayname:"Weight",
+   type:"text",
+   placeholder:"What's its weight?",
+   value:o.weight
 })}
 ${FormControlTextarea({
    namespace:namespace,
@@ -140,7 +182,7 @@ ${FormControlInput({
 
 
 const makeAnimalChoiceSelect = ({animals,name,chosen=0}) => `
-<select id="${name}">
+<select id="${name}" style="width: 100%; height: 2.5em; border: 0px solid var(--color-neutral-dark);">
    ${templater(o=>`
       <option value="${o.id}" ${o.id===chosen?'selected':''}>${o.name}</option>
    `)(animals)}
@@ -151,6 +193,7 @@ const makeAnimalListSet = (arr,target="#page-list .animallist") => {
    $(".filter-bar").html(makeFilterList(arr));
    $(target).html(makeAnimalList(arr));
 }
+
 
 const capitalize = s => s[0].toUpperCase()+s.substr(1);
 

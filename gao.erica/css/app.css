@@ -120,6 +120,18 @@ p {
   position: relative;
 }
 
+.background_circle {
+  width: 2.5em;
+  height: 2.5em;
+  background-color: var(--color-white);
+  border-radius: 50%;
+  margin-top: -2.5em;
+}
+
+.icon-profile img {
+  margin-left: 0.5em;
+  margin-bottom: 0.3em;
+}
 
 .centered { text-align:center; }
 .small { font-size: 0.8em; }
@@ -216,7 +228,15 @@ a.js-submituserpassword.ui-link {
    width: 1em;
    height: 1em;
    display: inline-block;
+  
 }
+
+
+input 
+.form-button {
+  margin-top: 2em;
+}
+
 
 .icon-profile {
     height: 2em;
@@ -276,6 +296,16 @@ a.js-submituserpassword.ui-link {
    background-color: var(--color-main-lighter);
 }
 
+.profile-navs {
+  font-family: var(--font-sans);
+}
+
+.animal-profile-middle li.active{
+  font-family: var(--font-sans);
+  color: var(--color-white);
+  background-color: var(--color-main-medium): 
+}
+
 
 .ui-header .ui-title {
    position: absolute;
@@ -320,6 +350,10 @@ a.js-submituserpassword.ui-link {
    font-size: 2.4rem;
    border-radius: 2em;
    box-shadow: 2px 2px 5px rgba(0,0,0,0.15);
+}
+
+button.form-button.ui-btn.ui-shadow.ui-corner-all {
+  font-family: var(--font-sans);
 }
 
 
@@ -814,7 +848,7 @@ button {
 /* ANIMAL PROFILE */
 .animal-profile-top {
    flex: none;
-   height: 40vh;
+   height: 33vh;
    position: relative;
 }
 .animal-profile-bottom {
@@ -828,7 +862,7 @@ button {
    display: block;
 }
 .animal-profile-middle li.active {
-   background-color: var(--color-main-light);
+   background-color: var(--color-main-medium);
 }
 
 .floating-header {
@@ -844,6 +878,7 @@ button {
 .animal-popup-image,
 .animal-popup-body {
    pointer-events: none;
+   margin-right: 0.5em;
 }
 .animal-popup-image img {
    max-width: 50px;
@@ -855,7 +890,8 @@ button {
 
 .profile-image {
    border-radius: 50%;
-   width: 40%;
+   width: 10em;
+   height: 10em;
    margin-left: 7em;
    margin-top: 1em;
    object-fit: cover;
@@ -944,8 +980,6 @@ button {
 .animal-popup-image img {
    max-width: 50px;
 }
-
-
 
 
 .filter-list {
@@ -1053,6 +1087,7 @@ button {
 .popup-button {
   margin-top: 70px;
 }
+
 
 .nav-page-links {
   line-height: 2.5em;

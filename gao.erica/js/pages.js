@@ -18,6 +18,10 @@ const ListPage = async() => {
       params:[sessionStorage.userId]
    });
 
+   if (animals.length == 0) {
+      showHeader();
+   }
+
    makeAnimalListSet(animals);
 }
 
@@ -98,7 +102,7 @@ const AnimalProfilePage = async() => {
 
    let [animal] = animal_result;
    $(".animal-profile-top>img").attr("src",animal.img);
-   $(".animal-profile-bottom .description").html(makeAnimalProfile(animal));
+   $(".animal-profile-middle").html(makeAnimalProfile(animal));
 
    let locations_result = await resultQuery({
       type:'locations_by_animal_id',
@@ -147,7 +151,6 @@ const LocationChooseAnimalPage = async() => {
       params:[sessionStorage.userId]
    });
 
-   console.log(result)
 
    $(".location-animal-choice-select").html(
       makeAnimalChoiceSelect({

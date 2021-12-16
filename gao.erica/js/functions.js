@@ -14,6 +14,7 @@ const checkUpload = (file) => {
 
    return fetch('data/api.php',{
       method:'POST',
+      enctype: "multipart/form-data",
       body:fd,
    }).then(d=>d.json());
 }

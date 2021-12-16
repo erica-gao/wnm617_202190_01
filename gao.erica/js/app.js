@@ -89,6 +89,7 @@ $(()=>{
          });
       })
    })
+
    .on("click",".js-submituserupload",function(e) {
       let image = $("#user-upload-filename").val();
       query({
@@ -148,13 +149,13 @@ $(()=>{
       window.history.go(+$("#location-navigateback").val());
    })
 
-   .on("click",".animal-profile-middle li",function(e){
-      let id = $(this).index();
-      $(this).addClass("active")
-         .siblings().removeClass("active");
-      $(this).closest(".animal-profile-middle").next().children().eq(id).addClass("active")
-         .siblings().removeClass("active");
-   })
+   // .on("click",".animal-profile-middle li",function(e){
+   //    let id = $(this).index();
+   //    $(this).addClass("active")
+   //       .siblings().removeClass("active");
+   //    $(this).closest(".animal-profile-middle").next().children().eq(id).addClass("active")
+   //       .siblings().removeClass("active");
+   // })
 
 
 
@@ -200,10 +201,12 @@ var btn = document.getElementById("myBtn");
 var span = document.getElementsByClassName("close")[0];
 
 // When the user clicks on the button, open the modal
+$(document).ready(function(){
 document.getElementById("myBtn").onclick = function() {
 
    document.getElementById("myModal").style.display = "block";
 }
+})
 
 
 // When the user clicks on <span> (x), close the modal
